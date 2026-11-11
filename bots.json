@@ -1,0 +1,13 @@
+[
+  { "repo": "ducktrader-alerts",   "name": "Setup Scanner",   "role": "Mag 7 double bottom → bull flag alerts", "icon": "📈" },
+  { "repo": "ducktrader-breadth",  "name": "Breadth Desk",    "role": "S&P 500 breadth + market archive",       "icon": "🌡️" },
+  { "repo": "ducktrader-200ema",   "name": "200 EMA Watch",   "role": "S&P 500 stocks under the 200 EMA",       "icon": "📉" },
+  { "repo": "ducktrader-horses",   "name": "Five Horses",     "role": "弘历 five horses signals",               "icon": "🐎" },
+  { "repo": "ducktrader-hne",      "name": "HNE 天地双剑",     "role": "Hammer → engulfing candle signals",      "icon": "⚔️" },
+  { "repo": "ducktrader-options",  "name": "Options Desk",    "role": "Model options trades + scorecard",       "icon": "🎯" },
+  { "repo": "ducktrader-sectors",  "name": "Sector Rotation", "role": "Weekly “where the money went”",          "icon": "🔄" },
+  { "repo": "ducktrader-yields",   "name": "Yields Bot",      "role": "Monthly US Treasury yields",             "icon": "🏦" },
+  { "repo": "ducktrader-ig-bot",   "name": "IG Manager",      "role": "Insights, post queue, Reel narration",   "icon": "📸" },
+  { "repo": "ducktrader-drama-bot","name": "Drama Studio",    "role": "Zero to Duck short dramas",              "icon": "🎬" },
+  { "repo": "ducktrader-fpl",      "name": "FPL Scout",       "role": "Fantasy Premier League",                 "icon": "⚽" }
+]

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DuckTrader HQ — Bot Office</title>
+<meta name="theme-color" content="#16181c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DuckTrader HQ">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#24272d; --bg2:#121316; --gold:#d4af37; --gold2:#f3d36b; --white:#f4f1ea;
+  --mute:#8b8f98; --line:#30343c; --ok:#3fbf7f; --bad:#e5484d; --run:#f3c33b; --idle:#5b6170;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:radial-gradient(120% 80% at 50% 0%,var(--bg1),var(--bg2) 70%);background-color:var(--bg2);color:var(--white);font-family:Oswald,system-ui,sans-serif;min-height:100%}
+body{padding:max(16px,env(safe-area-inset-top)) 14px 40px}
+.wrap{max-width:1100px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+h1{font-family:"Bebas Neue";font-weight:400;font-size:44px;letter-spacing:2px;line-height:.9;color:var(--gold2);text-shadow:0 2px 0 #6b5414}
+h1 span{color:var(--white)}
+.sub{font-size:13px;color:var(--mute);letter-spacing:.5px;margin-top:4px}
+.sub b{color:var(--white);font-weight:500}
+.counts{display:flex;gap:8px}
+.pill{font-family:"Bebas Neue";font-size:20px;letter-spacing:1px;padding:4px 12px 2px;border-radius:999px;background:#1b1d22;border:1px solid var(--line);display:flex;gap:6px;align-items:center}
+.pill i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.demo{background:#3a2e0e;border:1px solid #6b5414;color:var(--gold2);font-size:13px;padding:8px 12px;border-radius:8px;margin-bottom:12px;display:none}
+
+/* ticker */
+.ticker{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0e0f12;margin-bottom:14px;font-family:Silkscreen,monospace;font-size:12px;color:var(--gold)}
+.ticker div{display:inline-block;padding:7px 0;animation:tick 60s linear infinite}
+.ticker em{font-style:normal;margin:0 18px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* office floor */
+.office{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+  background:
+   linear-gradient(#1a1c21 0 70px,transparent 70px),
+   repeating-conic-gradient(#202329 0 25%,#1c1e23 0 50%) 0 70px/48px 48px;}
+.wall{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:4px solid #2b2e35}
+.sign{font-family:"Bebas Neue";font-size:26px;letter-spacing:3px;color:var(--gold);background:#111;padding:4px 14px 1px;border:2px solid var(--gold);box-shadow:0 0 18px #d4af3740}
+.clock{font-family:Silkscreen,monospace;font-size:14px;color:var(--gold2);background:#0b0c0e;padding:5px 9px;border:2px solid #333}
+.floor{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;padding:16px}
+.desk{background:none;border:0;color:inherit;text-align:center;cursor:pointer;padding:6px 4px 10px;border-radius:12px;transition:background .2s}
+.desk:hover,.desk:focus-visible{background:#ffffff0a;outline:none}
+.desk svg{width:100%;max-width:190px;image-rendering:pixelated;display:block;margin:0 auto}
+.plate{display:inline-block;margin-top:4px;background:#111;border:1px solid #3a3a3a;border-radius:4px;padding:3px 8px 2px;font-family:"Bebas Neue";font-size:18px;letter-spacing:1px;color:var(--white)}
+.plate .ic{margin-right:4px}
+.status{font-size:12px;margin-top:5px;color:var(--mute);min-height:16px}
+.status b{font-weight:600}
+.s-running .status b{color:var(--run)} .s-ok .status b{color:var(--ok)}
+.s-failed .status b{color:var(--bad)} .s-idle .status b,.s-unknown .status b{color:var(--idle)}
+
+/* duck animations */
+.wing{transform-box:fill-box}
+.s-running .wing{animation:type .22s steps(2) infinite}
+@keyframes type{50%{transform:translateY(-1px)}}
+.s-running .code rect{animation:blinkline 1.2s steps(1) infinite}
+.s-running .code rect:nth-child(2){animation-delay:.3s}.s-running .code rect:nth-child(3){animation-delay:.6s}.s-running .code rect:nth-child(4){animation-delay:.9s}
+@keyframes blinkline{50%{opacity:.25}}
+.s-failed .duck{animation:shake .5s steps(2) infinite}
+@keyframes shake{50%{transform:translateX(.6px)}}
+.s-failed .alarm{animation:flash 1s steps(1) infinite}
+@keyframes flash{50%{opacity:0}}
+.s-idle .duck{transform:translateY(1px)}
+.zz{font-family:Silkscreen,monospace;font-size:4px;fill:var(--gold2);opacity:0}
+.s-idle .zz{animation:zz 2.4s linear infinite}
+.s-idle .zz:nth-of-type(2){animation-delay:1.2s}
+@keyframes zz{0%{opacity:0;transform:translate(0,0)}30%{opacity:1}100%{opacity:0;transform:translate(3px,-6px)}}
+.eye{animation:blink 4s steps(1) infinite}
+@keyframes blink{96%{opacity:0}}
+.glow{filter:drop-shadow(0 0 2px currentColor)}
+
+/* table */
+h2{font-family:"Bebas Neue";font-weight:400;font-size:28px;letter-spacing:1.5px;color:var(--gold2);margin:26px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-weight:500;color:var(--mute);text-align:left;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:9px 8px;border-bottom:1px solid #23262c;vertical-align:middle}
+tr{cursor:pointer} tbody tr:hover{background:#ffffff07}
+.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.num{font-variant-numeric:tabular-nums}
+@media (max-width:640px){ .hide-sm{display:none} h1{font-size:36px} .floor{grid-template-columns:repeat(2,1fr);gap:6px;padding:10px} .plate{font-size:15px} }
+
+/* sheet */
+.veil{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;justify-content:center;z-index:9}
+.veil.on{display:flex}
+.sheet{background:#17191d;border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;width:100%;max-width:720px;max-height:86vh;overflow:auto;padding:18px 18px calc(24px + env(safe-area-inset-bottom))}
+.sheet h3{font-family:"Bebas Neue";font-weight:400;font-size:32px;letter-spacing:1px;color:var(--gold2)}
+.sheet .role{color:var(--mute);font-size:14px;margin-bottom:10px}
+.sheet a{color:var(--gold2)}
+.wf{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px}
+.wf h4{font-weight:500;font-size:16px;display:flex;justify-content:space-between;gap:8px}
+.wf .meta{font-size:12px;color:var(--mute);margin:3px 0 8px}
+.strip{display:flex;gap:4px;flex-wrap:wrap}
+.strip a{width:22px;height:22px;border-radius:3px;display:block}
+.alertbox{background:#2a1416;border:1px solid #5a2328;color:#ffb4b6;border-radius:10px;padding:10px 12px;font-size:14px;margin:6px 0}
+.close{float:right;background:#262930;border:0;color:var(--white);border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer}
+footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>DUCKTRADER <span>HQ</span></h1>
+      <div class="sub" id="sub">Loading the office…</div>
+    </div>
+    <div class="counts" id="counts"></div>
+  </header>
+  <div class="demo" id="demo">Showing demo data — the live feed appears after the first collector run.</div>
+  <div class="ticker"><div id="ticker"></div></div>
+
+  <section class="office">
+    <div class="wall"><div class="sign">BOT OFFICE</div><div class="clock" id="clock">--:--</div></div>
+    <div class="floor" id="floor"></div>
+  </section>
+
+  <h2>Status board</h2>
+  <table>
+    <thead><tr><th>Bot</th><th>State</th><th>Last run</th><th class="hide-sm">Next run</th><th class="hide-sm">24h</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <footer>Updates every ~20 min from GitHub Actions · times in SGT · DUCKTRADER4444</footer>
+</div>
+
+<div class="veil" id="veil"><div class="sheet" id="sheet"></div></div>
+
+<script>
+const TZ = "Asia/Singapore";
+const COLORS = { running:"var(--run)", ok:"var(--ok)", failed:"var(--bad)", idle:"var(--idle)", unknown:"var(--idle)" };
+const LABEL = { running:"Working", ok:"All good", failed:"Needs help", idle:"Sleeping", unknown:"Can't see" };
+let DATA = null;
+
+// ---------- time helpers ----------
+const fmt = (iso, opts) => new Intl.DateTimeFormat("en-SG", { timeZone: TZ, ...opts }).format(new Date(iso));
+const when = iso => fmt(iso, { weekday:"short", hour:"2-digit", minute:"2-digit", hour12:false });
+function ago(iso){ const s=(Date.now()-Date.parse(iso))/1000; if(s<60)return "just now"; if(s<3600)return Math.floor(s/60)+"m ago"; if(s<86400)return Math.floor(s/3600)+"h ago"; return Math.floor(s/86400)+"d ago"; }
+function until(iso){ let s=(Date.parse(iso)-Date.now())/1000; if(s<=0)return "due now"; const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60); return "in "+(d?d+"d ":"")+(d||h?h+"h ":"")+m+"m"; }
+const dur = s => s==null?"":s<60?s+"s":Math.floor(s/60)+"m "+(s%60)+"s";
+const esc = t => String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const runColor = r => r.status!=="completed" ? COLORS.running : r.conclusion==="success" ? COLORS.ok : ["failure","timed_out","startup_failure"].includes(r.conclusion) ? COLORS.failed : COLORS.idle;
+
+// ---------- pixel art ----------
+const PAL = { K:"#121212", Y:"#f2c230", y:"#d9a51f", O:"#f08a24", W:"#ffffff", E:"#000", S:"#f4f1ea", G:"#d4af37" };
+const DUCK = [
+  ".......KK.....",
+  "......KKK.....",
+  "....KKKKKK....",
+  "...YYYYYYYY...",
+  "..YYYYYYYYYY..",
+  "..W.YYYYYYYY..",
+  "OOOYYYYYYYYy..",
+  "OOOOYYYYYYYy..",
+  "...YYYYYYYYy..",
+  "....YYYYYYy...",
+  "....KKSGSKKK..",
+  "...KKKSGSKKKK.",
+  "...KKKKGKKKKK.",
+  "...KKKKKKKKKK.",
+  "...KKKKKKKKKK.",
+];
+const px = (x,y,w,h,c,extra="") => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c}" ${extra}/>`;
+function sprite(rows, ox, oy){ let s=""; rows.forEach((r,y)=>[...r].forEach((ch,x)=>{ if(PAL[ch]) s+=px(ox+x,oy+y,1,1,PAL[ch]); })); return s; }
+function screen(state){
+  const c = COLORS[state];
+  if(state==="running") return `<g class="code">${px(3,7,6,1,"#f3c33b")}${px(3,9,4,1,"#f3c33b")}${px(4,11,5,1,"#f3c33b")}${px(3,13,3,1,"#f3c33b")}</g>`;
+  if(state==="ok") return `<g>${px(3,11,1,1,"#3fbf7f")}${px(4,12,1,1,"#3fbf7f")}${px(5,11,1,1,"#3fbf7f")}${px(6,10,1,1,"#3fbf7f")}${px(7,9,1,1,"#3fbf7f")}${px(8,8,1,1,"#3fbf7f")}</g>`;
+  if(state==="failed") return `<g class="alarm">${px(5,7,2,4,"#e5484d")}${px(5,12,2,1,"#e5484d")}</g>`;
+  if(state==="unknown") return `<g>${px(4,7,3,1,"#8b8f98")}${px(7,8,1,2,"#8b8f98")}${px(5,10,2,1,"#8b8f98")}${px(5,12,1,1,"#8b8f98")}</g>`;
+  return "";
+}
+function office(state){
+  const scr = { running:"#2b2610", ok:"#0f2419", failed:"#2a0f12", idle:"#0b0c0e", unknown:"#15171b" }[state];
+  return `<svg viewBox="0 0 32 24" shape-rendering="crispEdges" aria-hidden="true">
+    ${px(25,9,3,8,"#3a3f4a")}${px(24,16,5,1,"#2c3038")}
+    <g class="duck">${sprite(DUCK,13,2)}
+      ${px(16,7,1,1,"#000",'class="eye"')}
+      <text class="zz" x="25" y="5">z</text><text class="zz" x="27" y="3">z</text>
+    </g>
+    <g class="wing">${px(14,14,2,1,"#f2c230")}${px(16,14,1,1,"#121212")}</g>
+    ${px(1,5,11,10,"#2a2f38")}${px(2,6,9,8,scr)}${screen(state)}
+    ${px(5,15,3,1,"#2a2f38")}${px(12,15,5,1,"#9aa0aa")}
+    ${px(0,16,30,2,"#6b5236")}${px(0,18,30,1,"#4a3825")}${px(1,19,2,5,"#4a3825")}${px(27,19,2,5,"#4a3825")}
+  </svg>`;
+}
+
+// ---------- render ----------
+function statusLine(b){
+  if(b.state==="running") return `<b>Working</b> · ${esc(b.running[0]?.workflow||"")}`;
+  if(b.state==="failed") return `<b>Needs help</b> · ${esc(b.failing[0]?.workflow||"")}`;
+  if(b.state==="unknown") return `<b>Can't see</b> · check token`;
+  const last = b.last_run ? `<b>${b.state==="ok"?"✓":"·"}</b> ${ago(b.last_run.started_at)}` : "<b>No runs yet</b>";
+  return last + (b.next_run ? ` · next ${until(b.next_run)}` : "");
+}
+function render(){
+  const bots = DATA.bots;
+  const n = s => bots.filter(b=>b.state===s).length;
+  document.getElementById("counts").innerHTML =
+    [["running","Working"],["ok","Good"],["failed","Help"]].map(([s,l])=>`<div class="pill"><i style="background:${COLORS[s]}"></i>${n(s)} ${l}</div>`).join("");
+  document.getElementById("sub").innerHTML = `<b>${bots.length} bots</b> on the floor · updated ${ago(DATA.generated_at)}`;
+  document.getElementById("floor").innerHTML = bots.map((b,i)=>`
+    <button class="desk s-${b.state}" data-i="${i}" aria-label="${esc(b.name)}: ${LABEL[b.state]}">
+      ${office(b.state)}
+      <div class="plate"><span class="ic">${b.icon||"🦆"}</span>${esc(b.name)}</div>
+      <div class="status">${statusLine(b)}</div>
+    </button>`).join("");
+  document.getElementById("rows").innerHTML = bots.map((b,i)=>`
+    <tr data-i="${i}">
+      <td>${b.icon||""} ${esc(b.name)}</td>
+      <td><span class="dot" style="background:${COLORS[b.state]}"></span>${LABEL[b.state]}</td>
+      <td class="num">${b.last_run?ago(b.last_run.started_at):"—"}</td>
+      <td class="num hide-sm">${b.next_run?until(b.next_run):"—"}</td>
+      <td class="num hide-sm">${b.runs_24h??"—"}</td>
+    </tr>`).join("");
+  const items = bots.map(b=>`${b.icon||""} ${b.name.toUpperCase()}: ${LABEL[b.state].toUpperCase()}${b.last_run?" · "+ago(b.last_run.started_at).toUpperCase():""}`);
+  document.getElementById("ticker").innerHTML = [...items,...items].map(t=>`<em>${esc(t)}</em>`).join("");
+  document.querySelectorAll("[data-i]").forEach(el=>el.onclick=()=>openSheet(bots[+el.dataset.i]));
+}
+function openSheet(b){
+  const fails = (b.failing||[]).map(f=>`<div class="alertbox">⚠️ <b>${esc(f.workflow)}</b> failed ${f.run?ago(f.run.updated_at):""}${f.run?` · <a href="${f.run.url}" target="_blank" rel="noopener">open the error log</a>`:""}</div>`).join("");
+  const wfs = (b.workflows||[]).map(w=>`
+    <div class="wf">
+      <h4><span>${esc(w.name)}</span><span style="color:var(--mute);font-size:13px">${w.enabled?"":"disabled"}</span></h4>
+      <div class="meta">${w.next_run?`Next: ${when(w.next_run)} SGT (${until(w.next_run)})`:"Runs on demand / on trigger"}${w.runs[0]?` · last ${ago(w.runs[0].started_at)}${w.runs[0].duration_s!=null?" in "+dur(w.runs[0].duration_s):""}`:""}</div>
+      <div class="strip">${w.runs.map(r=>`<a href="${r.url}" target="_blank" rel="noopener" title="${esc(r.conclusion||r.status)} · ${when(r.started_at)} · ${esc(r.event)}" style="background:${runColor(r)}"></a>`).join("")||'<span style="color:var(--mute);font-size:13px">No runs yet</span>'}</div>
+    </div>`).join("");
+  document.getElementById("sheet").innerHTML = `
+    <button class="close" onclick="closeSheet()" aria-label="Close">✕</button>
+    <h3>${b.icon||""} ${esc(b.name)}</h3>
+    <div class="role">${esc(b.role)} · <a href="${b.url}" target="_blank" rel="noopener">${esc(b.repo)}</a></div>
+    ${b.error?`<div class="alertbox">Can't read this repo: ${esc(b.error)}</div>`:""}
+    ${fails}${wfs}
+    <div class="meta" style="margin-top:12px;color:var(--mute);font-size:12px">Squares = last runs, newest first · tap one to open it on GitHub</div>`;
+  document.getElementById("veil").classList.add("on");
+}
+function closeSheet(){ document.getElementById("veil").classList.remove("on"); }
+document.getElementById("veil").onclick = e => { if(e.target.id==="veil") closeSheet(); };
+
+// ---------- demo data (before the first collector run) ----------
+function demo(){
+  const now=Date.now(), iso=t=>new Date(t).toISOString(), H=3600e3;
+  const names=[["Setup Scanner","📈","ok"],["Breadth Desk","🌡️","running"],["200 EMA Watch","📉","ok"],["Five Horses","🐎","ok"],["HNE 天地双剑","⚔️","idle"],["Options Desk","🎯","failed"],["Sector Rotation","🔄","idle"],["Yields Bot","🏦","ok"],["IG Manager","📸","running"],["Drama Studio","🎬","ok"],["FPL Scout","⚽","idle"]];
+  return { generated_at: iso(now-4*60e3), bots: names.map(([name,icon,state],i)=>{
+    const runs=[...Array(8)].map((_,k)=>({status:state==="running"&&k===0?"in_progress":"completed",conclusion:state==="failed"&&k===0?"failure":k===5?"failure":"success",event:"schedule",started_at:iso(now-(k*24+i)*H),updated_at:iso(now-(k*24+i)*H+90e3),duration_s:90,url:"#"}));
+    return { name, icon, state, role:"Demo bot", repo:"demo", url:"#", runs_24h:2,
+      last_run:{...runs[0],workflow:"Daily run"}, next_run:iso(now+(i+1)*2*H),
+      running: state==="running"?[{workflow:"Daily run"}]:[], failing: state==="failed"?[{workflow:"Daily run",run:runs[0]}]:[],
+      workflows:[{name:"Daily run",enabled:true,next_run:iso(now+(i+1)*2*H),runs}] };
+  })};
+}
+
+async function load(){
+  try{
+    const r = await fetch("status.json?t="+Date.now(), {cache:"no-store"});
+    if(!r.ok) throw 0;
+    DATA = await r.json(); document.getElementById("demo").style.display="none";
+  }catch{ if(!DATA||DATA.__demo){ DATA = demo(); DATA.__demo=true; document.getElementById("demo").style.display="block"; } }
+  render();
+}
+function tickClock(){ document.getElementById("clock").textContent = fmt(new Date().toISOString(),{hour:"2-digit",minute:"2-digit",hour12:false})+" SGT"; }
+load(); tickClock();
+setInterval(load, 60e3); setInterval(tickClock, 15e3);
+</script>
+</body>
+</html>
