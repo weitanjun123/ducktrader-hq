@@ -73,6 +73,9 @@ h1 span{color:var(--white)}
 @keyframes blink{96%{opacity:0}}
 .glow{filter:drop-shadow(0 0 2px currentColor)}
 
+.stage{display:flex;justify-content:center;background:#0c0d10}
+#cv{display:block;image-rendering:pixelated;touch-action:manipulation;cursor:pointer}
+.hint{font-size:12px;color:var(--mute);text-align:center;padding:8px 10px 10px}
 /* table */
 h2{font-family:"Bebas Neue";font-weight:400;font-size:28px;letter-spacing:1.5px;color:var(--gold2);margin:26px 0 8px}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -114,7 +117,8 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
 
   <section class="office">
     <div class="wall"><div class="sign">BOT OFFICE</div><div class="clock" id="clock">--:--</div></div>
-    <div class="floor" id="floor"></div>
+    <div class="stage"><canvas id="cv" aria-label="Pixel office where each duck is one of your bots"></canvas></div>
+    <div class="hint">Tap a duck or desk to see its runs · ducks follow real bot status</div>
   </section>
 
   <h2>Status board</h2>
@@ -127,6 +131,7 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
 
 <div class="veil" id="veil"><div class="sheet" id="sheet"></div></div>
 
+<script src="office.js"></script>
 <script>
 const TZ = "Asia/Singapore";
 const COLORS = { running:"var(--run)", ok:"var(--ok)", failed:"var(--bad)", idle:"var(--idle)", unknown:"var(--idle)" };
@@ -144,70 +149,13 @@ const dur = s => s==null?"":s<60?s+"s":Math.floor(s/60)+"m "+(s%60)+"s";
 const esc = t => String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const runColor = r => r.status!=="completed" ? COLORS.running : r.conclusion==="success" ? COLORS.ok : ["failure","timed_out","startup_failure"].includes(r.conclusion) ? COLORS.failed : COLORS.idle;
 
-// ---------- pixel art ----------
-const PAL = { K:"#121212", Y:"#f2c230", y:"#d9a51f", O:"#f08a24", W:"#ffffff", E:"#000", S:"#f4f1ea", G:"#d4af37" };
-const DUCK = [
-  ".......KK.....",
-  "......KKK.....",
-  "....KKKKKK....",
-  "...YYYYYYYY...",
-  "..YYYYYYYYYY..",
-  "..W.YYYYYYYY..",
-  "OOOYYYYYYYYy..",
-  "OOOOYYYYYYYy..",
-  "...YYYYYYYYy..",
-  "....YYYYYYy...",
-  "....KKSGSKKK..",
-  "...KKKSGSKKKK.",
-  "...KKKKGKKKKK.",
-  "...KKKKKKKKKK.",
-  "...KKKKKKKKKK.",
-];
-const px = (x,y,w,h,c,extra="") => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c}" ${extra}/>`;
-function sprite(rows, ox, oy){ let s=""; rows.forEach((r,y)=>[...r].forEach((ch,x)=>{ if(PAL[ch]) s+=px(ox+x,oy+y,1,1,PAL[ch]); })); return s; }
-function screen(state){
-  const c = COLORS[state];
-  if(state==="running") return `<g class="code">${px(3,7,6,1,"#f3c33b")}${px(3,9,4,1,"#f3c33b")}${px(4,11,5,1,"#f3c33b")}${px(3,13,3,1,"#f3c33b")}</g>`;
-  if(state==="ok") return `<g>${px(3,11,1,1,"#3fbf7f")}${px(4,12,1,1,"#3fbf7f")}${px(5,11,1,1,"#3fbf7f")}${px(6,10,1,1,"#3fbf7f")}${px(7,9,1,1,"#3fbf7f")}${px(8,8,1,1,"#3fbf7f")}</g>`;
-  if(state==="failed") return `<g class="alarm">${px(5,7,2,4,"#e5484d")}${px(5,12,2,1,"#e5484d")}</g>`;
-  if(state==="unknown") return `<g>${px(4,7,3,1,"#8b8f98")}${px(7,8,1,2,"#8b8f98")}${px(5,10,2,1,"#8b8f98")}${px(5,12,1,1,"#8b8f98")}</g>`;
-  return "";
-}
-function office(state){
-  const scr = { running:"#2b2610", ok:"#0f2419", failed:"#2a0f12", idle:"#0b0c0e", unknown:"#15171b" }[state];
-  return `<svg viewBox="0 0 32 24" shape-rendering="crispEdges" aria-hidden="true">
-    ${px(25,9,3,8,"#3a3f4a")}${px(24,16,5,1,"#2c3038")}
-    <g class="duck">${sprite(DUCK,13,2)}
-      ${px(16,7,1,1,"#000",'class="eye"')}
-      <text class="zz" x="25" y="5">z</text><text class="zz" x="27" y="3">z</text>
-    </g>
-    <g class="wing">${px(14,14,2,1,"#f2c230")}${px(16,14,1,1,"#121212")}</g>
-    ${px(1,5,11,10,"#2a2f38")}${px(2,6,9,8,scr)}${screen(state)}
-    ${px(5,15,3,1,"#2a2f38")}${px(12,15,5,1,"#9aa0aa")}
-    ${px(0,16,30,2,"#6b5236")}${px(0,18,30,1,"#4a3825")}${px(1,19,2,5,"#4a3825")}${px(27,19,2,5,"#4a3825")}
-  </svg>`;
-}
-
 // ---------- render ----------
-function statusLine(b){
-  if(b.state==="running") return `<b>Working</b> · ${esc(b.running[0]?.workflow||"")}`;
-  if(b.state==="failed") return `<b>Needs help</b> · ${esc(b.failing[0]?.workflow||"")}`;
-  if(b.state==="unknown") return `<b>Can't see</b> · check token`;
-  const last = b.last_run ? `<b>${b.state==="ok"?"✓":"·"}</b> ${ago(b.last_run.started_at)}` : "<b>No runs yet</b>";
-  return last + (b.next_run ? ` · next ${until(b.next_run)}` : "");
-}
 function render(){
   const bots = DATA.bots;
   const n = s => bots.filter(b=>b.state===s).length;
   document.getElementById("counts").innerHTML =
     [["running","Working"],["ok","Good"],["failed","Help"]].map(([s,l])=>`<div class="pill"><i style="background:${COLORS[s]}"></i>${n(s)} ${l}</div>`).join("");
   document.getElementById("sub").innerHTML = `<b>${bots.length} bots</b> on the floor · updated ${ago(DATA.generated_at)}`;
-  document.getElementById("floor").innerHTML = bots.map((b,i)=>`
-    <button class="desk s-${b.state}" data-i="${i}" aria-label="${esc(b.name)}: ${LABEL[b.state]}">
-      ${office(b.state)}
-      <div class="plate"><span class="ic">${b.icon||"🦆"}</span>${esc(b.name)}</div>
-      <div class="status">${statusLine(b)}</div>
-    </button>`).join("");
   document.getElementById("rows").innerHTML = bots.map((b,i)=>`
     <tr data-i="${i}">
       <td>${b.icon||""} ${esc(b.name)}</td>
@@ -218,7 +166,7 @@ function render(){
     </tr>`).join("");
   const items = bots.map(b=>`${b.icon||""} ${b.name.toUpperCase()}: ${LABEL[b.state].toUpperCase()}${b.last_run?" · "+ago(b.last_run.started_at).toUpperCase():""}`);
   TICK = items; showTick();
-  document.querySelectorAll("[data-i]").forEach(el=>el.onclick=()=>openSheet(bots[+el.dataset.i]));
+  document.querySelectorAll("#rows [data-i]").forEach(el=>el.onclick=()=>openSheet(bots[+el.dataset.i]));
 }
 function openSheet(b){
   const fails = (b.failing||[]).map(f=>`<div class="alertbox">⚠️ <b>${esc(f.workflow)}</b> failed ${f.run?ago(f.run.updated_at):""}${f.run?` · <a href="${f.run.url}" target="_blank" rel="noopener">open the error log</a>`:""}</div>`).join("");
@@ -243,10 +191,10 @@ document.getElementById("veil").onclick = e => { if(e.target.id==="veil") closeS
 // ---------- demo data (before the first collector run) ----------
 function demo(){
   const now=Date.now(), iso=t=>new Date(t).toISOString(), H=3600e3;
-  const names=[["Setup Scanner","📈","ok"],["Breadth Desk","🌡️","running"],["200 EMA Watch","📉","ok"],["Five Horses","🐎","ok"],["HNE 天地双剑","⚔️","idle"],["Options Desk","🎯","failed"],["Sector Rotation","🔄","idle"],["Yields Bot","🏦","ok"],["IG Manager","📸","running"],["Drama Studio","🎬","ok"],["FPL Scout","⚽","idle"]];
-  return { generated_at: iso(now-4*60e3), bots: names.map(([name,icon,state],i)=>{
-    const runs=[...Array(8)].map((_,k)=>({status:state==="running"&&k===0?"in_progress":"completed",conclusion:state==="failed"&&k===0?"failure":k===5?"failure":"success",event:"schedule",started_at:iso(now-(k*24+i)*H),updated_at:iso(now-(k*24+i)*H+90e3),duration_s:90,url:"#"}));
-    return { name, icon, state, role:"Demo bot", repo:"demo", url:"#", runs_24h:2,
+  const names=[["Setup Scanner","📈","ok","alerts"],["Breadth Desk","🌡️","running","breadth"],["200 EMA Watch","📉","ok","200ema"],["Five Horses","🐎","ok","horses"],["HNE 天地双剑","⚔️","ok","hne"],["Options Desk","🎯","failed","options"],["Sector Rotation","🔄","ok","sectors"],["Yields Bot","🏦","ok","yields"],["IG Manager","📸","ok","ig-bot"],["Drama Studio","🎬","ok","drama-bot"],["FPL Scout","⚽","ok","fpl"]];
+  return { generated_at: iso(now-4*60e3), bots: names.map(([name,icon,state,rp],i)=>{
+    const runs=[...Array(8)].map((_,k)=>({id:i*100+k,workflow:"Daily run",status:state==="running"&&k===0?"in_progress":"completed",conclusion:state==="failed"&&k===0?"failure":k===5?"failure":"success",event:"schedule",started_at:iso(now-(k*24+i)*H),updated_at:iso(now-(k*24+i)*H+90e3),duration_s:90,url:"#"}));
+    return { name, icon, state, role:"Demo bot", repo:"ducktrader-"+rp, url:"#", runs_24h:2,
       last_run:{...runs[0],workflow:"Daily run"}, next_run:iso(now+(i+1)*2*H),
       running: state==="running"?[{workflow:"Daily run"}]:[], failing: state==="failed"?[{workflow:"Daily run",run:runs[0]}]:[],
       workflows:[{name:"Daily run",enabled:true,next_run:iso(now+(i+1)*2*H),runs}] };
@@ -259,9 +207,10 @@ async function load(){
     if(!r.ok) throw 0;
     DATA = await r.json(); document.getElementById("demo").style.display="none";
   }catch{ if(!DATA||DATA.__demo){ DATA = demo(); DATA.__demo=true; document.getElementById("demo").style.display="block"; } }
-  render();
+  render(); Office.setData(DATA);
 }
 function tickClock(){ document.getElementById("clock").textContent = fmt(new Date().toISOString(),{hour:"2-digit",minute:"2-digit",hour12:false})+" SGT"; }
+Office.start(document.getElementById("cv"), openSheet);
 load(); tickClock();
 setInterval(load, 60e3); setInterval(tickClock, 15e3);
 </script>
