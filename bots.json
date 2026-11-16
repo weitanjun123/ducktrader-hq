@@ -9,5 +9,6 @@
   { "repo": "ducktrader-yields",   "name": "Yields Bot",      "role": "Monthly US Treasury yields",             "icon": "🏦" },
   { "repo": "ducktrader-ig-bot",   "name": "IG Manager",      "role": "Insights, post queue, Reel narration",   "icon": "📸" },
   { "repo": "ducktrader-drama-bot","name": "Drama Studio",    "role": "Zero to Duck short dramas",              "icon": "🎬" },
-  { "repo": "ducktrader-fpl",      "name": "FPL Scout",       "role": "Fantasy Premier League",                 "icon": "⚽" }
+  { "repo": "ducktrader-fpl",      "name": "FPL Scout",       "role": "Fantasy Premier League",                 "icon": "⚽" },
+  { "repo": "sg-transit-planner",  "name": "MRT Planner",     "role": "Singapore MRT line planner + crowd sim",  "icon": "🚇" }
 ]
