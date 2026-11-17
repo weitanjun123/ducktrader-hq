@@ -1,9 +1,21 @@
 {
-  "exclude": ["telegram-giveaway-data", "telegram-giveaway-dashboard"],
+  "exclude": [
+    "telegram-giveaway-data",
+    "telegram-giveaway-dashboard",
+    "jeju-trip-2027"
+  ],
   "sites": {
-    "jeju-trip-2027":      { "name": "Jeju Trip 2027",      "icon": "🏝️" },
-    "sg-transit-planner":  { "name": "SG Transit Planner",  "icon": "🚇" },
-    "ducktrader-hq":       { "name": "DuckTrader HQ",       "icon": "🦆" },
-    "ducktrader-ig-media": { "name": "IG Media",            "icon": "📸" }
+    "sg-transit-planner": {
+      "name": "SG Transit Planner",
+      "icon": "🚇"
+    },
+    "ducktrader-hq": {
+      "name": "DuckTrader HQ",
+      "icon": "🦆"
+    },
+    "ducktrader-ig-media": {
+      "name": "IG Media",
+      "icon": "📸"
+    }
   }
 }
