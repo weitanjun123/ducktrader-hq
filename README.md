@@ -13,4 +13,4 @@ Settings → Pages → Source: **GitHub Actions**.
 Living office: ducks walk between the trading floor, pantry, lounge, meeting room and mailroom. Running bots type at their desks, failed bots show a red "!" and get help, finished runs are carried to the Telegram mailbox, and Breadth / Setup Scanner hand data folders to the bots that read their output. Lighting follows Singapore time.
 
 ## My Pages launcher
-Every public repo with GitHub Pages switched on is listed automatically at the top of HQ (search + ⭐ pins). Hide a repo or set its name/emoji in `pages.json`.
+Lists every public repo with GitHub Pages switched on (search + ⭐ pins). Refreshed only when you run the "Refresh My Pages" workflow by hand; the 20-min bot update no longer checks Pages. Hide a repo or set its name/emoji in `pages.json`.

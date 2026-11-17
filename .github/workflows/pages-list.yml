@@ -1,0 +1,34 @@
+name: Refresh My Pages
+
+# Run by hand after you create a new GitHub Pages site.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Find public Pages sites
+        env:
+          HQ_TOKEN: ${{ secrets.HQ_TOKEN }}
+          HQ_PAGES: "1"
+        run: node scripts/collect.mjs
+      - name: Save list
+        run: |
+          git config user.name "ducktrader-hq-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add web/pages-list.json
+          git diff --cached --quiet || git commit -m "Refresh My Pages list"
+          git push
+      - name: Republish HQ
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run hq.yml --ref main

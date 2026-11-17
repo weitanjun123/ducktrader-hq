@@ -137,7 +137,7 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
   </header>
   <section class="launch" id="pages">
     <div class="lhead"><h2>📌 My Pages</h2><input id="q" type="search" placeholder="Search pages…" autocomplete="off"></div>
-    <div class="cards" id="cards"><div class="empty">Your pages appear after the next update (≈20 min).</div></div>
+    <div class="cards" id="cards"><div class="empty">No pages listed yet — run “Refresh My Pages” on GitHub.</div></div>
   </section>
   <div class="demo" id="demo">Showing demo data — the live feed appears after the first collector run.</div>
   <div class="ticker"><div id="ticker"></div></div>
@@ -229,11 +229,13 @@ function demo(){
 }
 
 // ---------- page launcher ----------
+let PAGES=[];
+fetch("pages-list.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{ if(j){ PAGES=j.pages||[]; renderPages(); } }).catch(()=>{});
 const PINKEY="hq-pins";
 const getPins=()=>{ try{ return JSON.parse(localStorage.getItem(PINKEY)||"[]"); }catch{ return []; } };
 const setPins=a=>{ try{ localStorage.setItem(PINKEY, JSON.stringify(a)); }catch{} };
 function renderPages(){
-  const el=document.getElementById("cards"), pages=(DATA&&DATA.pages)||[];
+  const el=document.getElementById("cards"), pages=PAGES;
   if(!pages.length) return;
   const q=document.getElementById("q").value.trim().toLowerCase(), pins=getPins();
   const list=pages.filter(p=>!q||[p.name,p.repo,p.description,...(p.subpages||[]).map(s=>s.title)].join(" ").toLowerCase().includes(q))

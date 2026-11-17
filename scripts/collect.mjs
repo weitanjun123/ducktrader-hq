@@ -182,13 +182,18 @@ async function collectPages(){
   return out;
 }
 
+// Manual mode: only refresh the My Pages list (run from the "Refresh My Pages" workflow)
+if (process.env.HQ_PAGES === "1") {
+  const pages = await collectPages();
+  await writeFile("web/pages-list.json", JSON.stringify({ generated_at: new Date().toISOString(), pages }, null, 1) + "\n");
+  console.log("Pages sites:", pages.map(p => p.repo).join(", ") || "(none)");
+  process.exit(0);
+}
+
 const bots = JSON.parse(await readFile("bots.json", "utf8"));
 const results = [];
 for (const b of bots) results.push(await collectBot(b)); // sequential: kind to the API
 await mkdir(OUT.split("/").slice(0, -1).join("/") || ".", { recursive: true });
-let pages = [];
-try { pages = await collectPages(); console.log("Pages sites:", pages.map(p => p.repo).join(", ")); }
-catch (e) { console.error("pages: " + e.message); }
-await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, bots: results, pages }, null, 1));
+await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, bots: results }, null, 1));
 const tally = results.reduce((t, b) => ((t[b.state] = (t[b.state] || 0) + 1), t), {});
 console.log("Wrote", OUT, tally);
