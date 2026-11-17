@@ -1,0 +1,44 @@
+{
+ "generated_at": "2026-11-17T12:12:47.404Z",
+ "pages": [
+  {
+   "repo": "ducktrader-hq",
+   "url": "https://weitanjun123.github.io/ducktrader-hq/",
+   "repo_url": "https://github.com/weitanjun123/ducktrader-hq",
+   "name": "DuckTrader HQ",
+   "icon": "🦆",
+   "description": "DuckTrader HQ — Bot Office",
+   "updated_at": "2026-11-17T12:12:11Z",
+   "subpages": [],
+   "online": true
+  },
+  {
+   "repo": "sg-transit-planner",
+   "url": "https://weitanjun123.github.io/sg-transit-planner/",
+   "repo_url": "https://github.com/weitanjun123/sg-transit-planner",
+   "name": "SG Transit Planner",
+   "icon": "🚇",
+   "description": "SG Transit Planner",
+   "updated_at": "2026-11-17T11:59:24Z",
+   "subpages": [
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/compare.html",
+     "title": "SG Transit Planner — Ridership compare"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/map.html",
+     "title": "SG Transit Planner — Map"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/report.html",
+     "title": "SG Transit Planner — Early wakers & night owls"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/sim.html",
+     "title": "SG MRT Pixel Sim"
+    }
+   ],
+   "online": true
+  }
+ ]
+}
