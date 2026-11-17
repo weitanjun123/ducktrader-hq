@@ -127,10 +127,68 @@ async function collectBot(bot) {
   return out;
 }
 
+// ---------- public GitHub Pages sites ----------
+async function getPublic(path){
+  try { return await gh(path); }
+  catch (e) { // fall back to an unauthenticated call for public data
+    const res = await fetch(API + path, { headers: { Accept: "application/vnd.github+json", "User-Agent": "ducktrader-hq" } });
+    if (!res.ok) throw e; return res.json();
+  }
+}
+async function pageInfo(url){
+  try {
+    const res = await fetch(url, { redirect: "follow" });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const t = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+    return { title: t ? t[1].trim() : null };
+  } catch { return null; }
+}
+async function collectPages(){
+  let cfg = { exclude: [], sites: {} };
+  try { cfg = JSON.parse(await readFile("pages.json", "utf8")); } catch {}
+  const repos = await getPublic(`/users/${OWNER}/repos?per_page=100&type=owner&sort=pushed`);
+  const out = [];
+  for (const r of repos) {
+    if (!r.has_pages || r.private || r.archived || cfg.exclude.includes(r.name)) continue;
+    const o = cfg.sites[r.name] || {};
+    const isUserSite = r.name.toLowerCase() === `${OWNER.toLowerCase()}.github.io`;
+    const base = r.homepage && /^https?:\/\//.test(r.homepage) ? r.homepage.replace(/\/?$/, "/")
+      : `https://${OWNER.toLowerCase()}.github.io/${isUserSite ? "" : r.name + "/"}`;
+    const site = {
+      repo: r.name, url: base, repo_url: r.html_url,
+      name: o.name || r.name.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+      icon: o.icon || "🌐", description: o.description || r.description || "",
+      updated_at: r.pushed_at, subpages: [],
+    };
+    const main = await pageInfo(base);
+    site.online = !!main; if (main?.title && !o.description && !r.description) site.description = main.title;
+    // extra .html pages inside the site
+    try {
+      const tree = await getPublic(`/repos/${OWNER}/${r.name}/git/trees/${r.default_branch}?recursive=1`);
+      const files = tree.tree.filter(f => f.type === "blob").map(f => f.path);
+      const root = ["", "docs/", "web/", "site/", "public/", "dist/"].find(d => files.includes(d + "index.html")) ?? "";
+      const extra = files.filter(f => f.startsWith(root) && f.endsWith(".html") && f !== root + "index.html"
+        && !/(^|\/)(node_modules|vendor|assets|lib|test|tests|templates|partials)\//.test(f)).slice(0, 15);
+      for (const f of extra) {
+        const rel = f.slice(root.length).replace(/index\.html$/, "");
+        const url = base + rel, info = await pageInfo(url);
+        const fallback = rel.replace(/\/$/, "").replace(/\.html$/, "").replace(/[-_\/]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        if (info) site.subpages.push({ url, title: info.title && info.title !== main?.title ? info.title : fallback });
+      }
+    } catch (e) { console.error(`pages tree ${r.name}: ${e.message}`); }
+    out.push(site);
+  }
+  return out;
+}
+
 const bots = JSON.parse(await readFile("bots.json", "utf8"));
 const results = [];
 for (const b of bots) results.push(await collectBot(b)); // sequential: kind to the API
 await mkdir(OUT.split("/").slice(0, -1).join("/") || ".", { recursive: true });
-await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, bots: results }, null, 1));
+let pages = [];
+try { pages = await collectPages(); console.log("Pages sites:", pages.map(p => p.repo).join(", ")); }
+catch (e) { console.error("pages: " + e.message); }
+await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, bots: results, pages }, null, 1));
 const tally = results.reduce((t, b) => ((t[b.state] = (t[b.state] || 0) + 1), t), {});
 console.log("Wrote", OUT, tally);

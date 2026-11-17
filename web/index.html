@@ -76,6 +76,28 @@ h1 span{color:var(--white)}
 .stage{display:flex;justify-content:center;background:#0c0d10}
 #cv{display:block;image-rendering:pixelated;touch-action:manipulation;cursor:pointer}
 .hint{font-size:12px;color:var(--mute);text-align:center;padding:8px 10px 10px}
+/* launcher */
+.jump{text-decoration:none;color:var(--white);font-size:18px}
+.launch{margin:4px 0 18px;scroll-margin-top:10px}
+.lhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.lhead h2{margin:0;white-space:nowrap}
+#q{flex:0 1 220px;min-width:0;background:#1b1d22;border:1px solid var(--line);border-radius:999px;color:var(--white);font:inherit;font-size:15px;padding:8px 14px;outline:none}
+#q:focus{border-color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{position:relative;background:linear-gradient(160deg,#22252b,#191b1f);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.card.pinned{border-color:#6b5414;box-shadow:0 0 0 1px #6b541466}
+.card .top{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+.card .ico{font-size:30px;width:48px;height:48px;display:grid;place-items:center;background:#111317;border:1px solid #2c3038;border-radius:12px;flex:none}
+.card .nm{font-family:"Bebas Neue";font-size:24px;letter-spacing:1px;line-height:1;color:var(--white)}
+.card .ds{font-size:13px;color:var(--mute);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--mute)}
+.open{background:var(--gold);color:#141414;font-family:"Bebas Neue";font-size:19px;letter-spacing:1px;text-decoration:none;padding:6px 14px 4px;border-radius:999px}
+.subs{display:flex;flex-wrap:wrap;gap:6px}
+.subs a{font-size:13px;color:var(--gold2);background:#2a2410;border:1px solid #4a3d12;border-radius:999px;padding:3px 10px;text-decoration:none}
+.pin{position:absolute;top:10px;right:10px;background:none;border:0;font-size:20px;cursor:pointer;opacity:.35;padding:4px}
+.card.pinned .pin{opacity:1}
+.off{color:var(--bad)}
+.empty{color:var(--mute);font-size:14px;padding:6px 2px}
 /* table */
 h2{font-family:"Bebas Neue";font-weight:400;font-size:28px;letter-spacing:1.5px;color:var(--gold2);margin:26px 0 8px}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -110,12 +132,17 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
       <h1>DUCKTRADER <span>HQ</span></h1>
       <div class="sub" id="sub">Loading the office…</div>
     </div>
+    <div class="counts"><a class="pill jump" href="#pages">📌 Pages</a><a class="pill jump" href="#office">🦆 Office</a></div>
     <div class="counts" id="counts"></div>
   </header>
+  <section class="launch" id="pages">
+    <div class="lhead"><h2>📌 My Pages</h2><input id="q" type="search" placeholder="Search pages…" autocomplete="off"></div>
+    <div class="cards" id="cards"><div class="empty">Your pages appear after the next update (≈20 min).</div></div>
+  </section>
   <div class="demo" id="demo">Showing demo data — the live feed appears after the first collector run.</div>
   <div class="ticker"><div id="ticker"></div></div>
 
-  <section class="office">
+  <section class="office" id="office">
     <div class="wall"><div class="sign">BOT OFFICE</div><div class="clock" id="clock">--:--</div></div>
     <div class="stage"><canvas id="cv" aria-label="Pixel office where each duck is one of your bots"></canvas></div>
     <div class="hint">Tap a duck or desk to see its runs · ducks follow real bot status</div>
@@ -201,13 +228,37 @@ function demo(){
   })};
 }
 
+// ---------- page launcher ----------
+const PINKEY="hq-pins";
+const getPins=()=>{ try{ return JSON.parse(localStorage.getItem(PINKEY)||"[]"); }catch{ return []; } };
+const setPins=a=>{ try{ localStorage.setItem(PINKEY, JSON.stringify(a)); }catch{} };
+function renderPages(){
+  const el=document.getElementById("cards"), pages=(DATA&&DATA.pages)||[];
+  if(!pages.length) return;
+  const q=document.getElementById("q").value.trim().toLowerCase(), pins=getPins();
+  const list=pages.filter(p=>!q||[p.name,p.repo,p.description,...(p.subpages||[]).map(s=>s.title)].join(" ").toLowerCase().includes(q))
+    .sort((a,b)=>(pins.includes(b.repo)-pins.includes(a.repo)) || Date.parse(b.updated_at)-Date.parse(a.updated_at));
+  el.innerHTML = list.length ? list.map(p=>`
+    <div class="card ${pins.includes(p.repo)?"pinned":""}">
+      <button class="pin" data-pin="${esc(p.repo)}" aria-label="Pin ${esc(p.name)}">⭐</button>
+      <a class="top" href="${esc(p.url)}" target="_blank" rel="noopener">
+        <div class="ico">${p.icon||"🌐"}</div>
+        <div><div class="nm">${esc(p.name)}</div><div class="ds">${esc(p.description||p.url.replace(/^https:\/\//,""))}</div></div>
+      </a>
+      ${(p.subpages||[]).length?`<div class="subs">${p.subpages.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join("")}</div>`:""}
+      <div class="row"><span>${p.online===false?'<b class="off">Not responding</b> · ':""}Updated ${ago(p.updated_at)}</span><a class="open" href="${esc(p.url)}" target="_blank" rel="noopener">Open ↗</a></div>
+    </div>`).join("") : '<div class="empty">No page matches that search.</div>';
+  el.querySelectorAll("[data-pin]").forEach(b=>b.onclick=()=>{ const r=b.dataset.pin, a=getPins(); setPins(a.includes(r)?a.filter(x=>x!==r):[...a,r]); renderPages(); });
+}
+document.getElementById("q").addEventListener("input", renderPages);
+
 async function load(){
   try{
     const r = await fetch("status.json?t="+Date.now(), {cache:"no-store"});
     if(!r.ok) throw 0;
     DATA = await r.json(); document.getElementById("demo").style.display="none";
   }catch{ if(!DATA||DATA.__demo){ DATA = demo(); DATA.__demo=true; document.getElementById("demo").style.display="block"; } }
-  render(); Office.setData(DATA);
+  render(); renderPages(); Office.setData(DATA);
 }
 function tickClock(){ document.getElementById("clock").textContent = fmt(new Date().toISOString(),{hour:"2-digit",minute:"2-digit",hour12:false})+" SGT"; }
 Office.start(document.getElementById("cv"), openSheet);
