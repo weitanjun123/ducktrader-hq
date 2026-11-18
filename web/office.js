@@ -25,7 +25,7 @@ const MAP = [
   "#:::::::::::#;;;;;;;;;;#",
   "########################",
 ];
-const DESKS = [[3,9],[10,9],[17,9],[3,12],[10,12],[17,12],[3,15],[10,15],[17,15],[3,18],[10,18],[17,18]];
+const DESKS = [9,12,15,18].flatMap(r => [2,7,13,18].map(c => [c,r])); // 16 desks, 4 per row
 const SPOT = {
   coffee:[2,24], fridge:[9,24], water:[10,31], mailbox:[14,2], printer:[16,2],
   racks:[[19,2],[20,2],[21,2],[22,2]],
@@ -63,7 +63,7 @@ function bfs(from, to){
 }
 
 // ---------- palette & sprites ----------
-const TIES = ["#d4af37","#3fb8c9","#9b6bff","#ff8fb1","#4f8cff","#ff9f43","#3fbf7f","#f4f1ea","#c0e85a","#b07cff","#ffd166","#7ad3ff"];
+const TIES = ["#d4af37","#3fb8c9","#9b6bff","#ff8fb1","#4f8cff","#ff9f43","#3fbf7f","#f4f1ea","#c0e85a","#b07cff","#ffd166","#7ad3ff","#ff6f61","#2ec4b6","#e0aaff","#a0c4ff"];
 const FRONT = [
   "....KKK.....","...KKKK.....","..YYYYYYYY..",".YYYYYYYYYY.",".YYEYYYYEYY.",".YYYYOOYYYY.",
   ".YYYOOOOYYY.","..YYYYYYYY..","..KKSTTSKK..",".KKKSTTSKKK.","YKKKKTTKKKKY",".KKKKKKKKKK.","..KKK..KKK..","..OO....OO..",
