@@ -105,6 +105,7 @@ h1 span{color:var(--white)}
 .bar i{display:block;height:100%;background:var(--gold)}
 .rank tr.top td{color:var(--gold2)}
 .bar.yr i{background:#8fa3b8}
+th.sortable{cursor:pointer;color:var(--gold2);text-decoration:underline dotted;text-underline-offset:3px;user-select:none}
 .hr{font-size:11px;color:var(--mute);margin-top:2px}
 @media (max-width:640px){ .bar{width:34px} .rank td,.rank th{padding:8px 4px} }
 /* table */
@@ -165,7 +166,7 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
   <h2>🏆 Hardworking Ranking</h2>
   <div class="sub" id="worksub" style="margin:-4px 0 8px"></div>
   <table class="rank">
-    <thead><tr><th>#</th><th>Bot</th><th>7-day %</th><th>Year %</th><th class="hide-sm">Tasks 7d</th><th class="hide-sm">✓</th></tr></thead>
+    <thead><tr><th>#</th><th>Bot</th><th class="sortable" data-sort="week">7-day %<span id="s-week"></span></th><th class="sortable" data-sort="year">Year %<span id="s-year"></span></th><th class="hide-sm">Tasks 7d</th><th class="hide-sm">✓</th></tr></thead>
     <tbody id="rank"></tbody>
   </table>
   <footer>DuckTrader HQ v4 · updates every ~20 min from GitHub Actions · times in SGT · DUCKTRADER4444</footer>
@@ -271,17 +272,23 @@ function renderPages(){
 document.getElementById("q").addEventListener("input", renderPages);
 
 // ---------- hardworking ranking ----------
-let YEAR=null;
+let YEAR=null, SORT=(()=>{ try{ return localStorage.getItem("hq-sort")||"week"; }catch{ return "week"; } })();
+document.addEventListener("click", e=>{ const th=e.target.closest("th[data-sort]"); if(!th) return; SORT=th.dataset.sort; try{ localStorage.setItem("hq-sort",SORT); }catch{} if(DATA) renderRank(); });
 fetch("summary-"+new Date().getFullYear()+".json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{ YEAR=j; if(DATA) renderRank(); }).catch(()=>{});
 const hrs = h => h==null?"—":h<1?Math.round(h*60)+"m":h.toFixed(1)+"h";
 function renderRank(){
-  const bots=[...DATA.bots].filter(b=>b.week).sort((a,b)=>a.week.rank-b.week.rank);
   const yr = Object.fromEntries((YEAR?.bots||[]).map(b=>[b.repo,b]));
+  const byYear = SORT==="year" && YEAR;
+  const bots=[...DATA.bots].filter(b=>b.week).sort((a,b)=> byYear
+    ? ((yr[b.repo]?.hours??-1)-(yr[a.repo]?.hours??-1)) || a.week.rank-b.week.rank
+    : a.week.rank-b.week.rank);
+  document.getElementById("s-week").textContent = byYear?"":" ▼";
+  document.getElementById("s-year").textContent = byYear?" ▼":"";
   const yMax = Math.max(1e-9, ...(YEAR?.bots||[]).map(b=>b.hours));
   document.getElementById("worksub").innerHTML = DATA.work ? `<b>7-day %</b> = share of the last 7 days' work (all bots: <b>${hrs(DATA.work.total_hours)}</b>) · drives the duck bars and ⭐<br><b>Year %</b> = share of this year's work from the bonus ledger${YEAR?` (all bots: <b>${hrs(YEAR.total_hours)}</b>, updated ${ago(YEAR.updated_at)})`:" (appears after the ledger runs)"}` : "";
   document.getElementById("rank").innerHTML = bots.map(b=>{ const w=b.week, y=yr[b.repo]; return `
-    <tr class="${w.top?"top":""}" data-r="${esc(b.repo)}">
-      <td class="num">${w.rank}${w.top?" ⭐":""}</td>
+    <tr class="${(byYear?y&&y.rank===1:w.top)?"top":""}" data-r="${esc(b.repo)}">
+      <td class="num">${byYear?(y?y.rank:"—")+(y&&y.rank===1?" ⭐":""):w.rank+(w.top?" ⭐":"")}</td>
       <td>${b.icon||""} ${esc(b.name)}</td>
       <td class="num"><span class="bar"><i style="width:${Math.round((w.bar||0)*100)}%"></i></span>${w.index}%<div class="hr">${hrs(w.hours)}</div></td>
       <td class="num">${y?`<span class="bar yr"><i style="width:${Math.round(100*y.hours/yMax)}%"></i></span>${y.share_pct}%<div class="hr">${hrs(y.hours)}</div>`:"—"}</td>
