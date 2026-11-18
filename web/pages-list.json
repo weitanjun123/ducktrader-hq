@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T12:12:47.404Z",
+ "generated_at": "2026-11-18T11:28:35.695Z",
  "pages": [
   {
    "repo": "ducktrader-hq",
@@ -8,7 +8,7 @@
    "name": "DuckTrader HQ",
    "icon": "🦆",
    "description": "DuckTrader HQ — Bot Office",
-   "updated_at": "2026-11-17T12:12:11Z",
+   "updated_at": "2026-11-18T11:27:06Z",
    "subpages": [],
    "online": true
   },
@@ -19,15 +19,35 @@
    "name": "SG Transit Planner",
    "icon": "🚇",
    "description": "SG Transit Planner",
-   "updated_at": "2026-11-17T11:59:24Z",
+   "updated_at": "2026-11-18T11:18:28Z",
    "subpages": [
     {
      "url": "https://weitanjun123.github.io/sg-transit-planner/compare.html",
      "title": "SG Transit Planner — Ridership compare"
     },
     {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/economics.html",
+     "title": "SG Transit Planner — Does it make financial sense?"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/future.html",
+     "title": "SG Transit Planner — 2030 crowding stress test"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/heartbeat.html",
+     "title": "Singapore's 24-hour MRT heartbeat"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/insights.html",
+     "title": "SG Transit Planner — Deep dive"
+    },
+    {
      "url": "https://weitanjun123.github.io/sg-transit-planner/map.html",
      "title": "SG Transit Planner — Map"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/prices.html",
+     "title": "SG Transit Planner — Home prices &amp; the MRT"
     },
     {
      "url": "https://weitanjun123.github.io/sg-transit-planner/report.html",
@@ -36,6 +56,26 @@
     {
      "url": "https://weitanjun123.github.io/sg-transit-planner/sim.html",
      "title": "SG MRT Pixel Sim"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/v1/compare.html",
+     "title": "SG Transit Planner — Ridership compare"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/v1/heartbeat.html",
+     "title": "Singapore's 24-hour MRT heartbeat"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/v1/",
+     "title": "V1"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/v1/insights.html",
+     "title": "SG Transit Planner — Deep dive"
+    },
+    {
+     "url": "https://weitanjun123.github.io/sg-transit-planner/v1/map.html",
+     "title": "SG Transit Planner — Map"
     }
    ],
    "online": true
@@ -47,7 +87,7 @@
    "name": "SG Electoral Boundaries",
    "icon": "🗳️",
    "description": "Boundaries, votes & the MRT test, GE2006–GE2025",
-   "updated_at": "2026-11-18T03:01:00Z",
+   "updated_at": "2026-11-18T03:01:21Z",
    "subpages": [],
    "online": true
   },
@@ -58,7 +98,7 @@
    "name": "HDB New Towns: Punggol & Sengkang vs Tengah",
    "icon": "🏘️",
    "description": "BTO start → resale prices, do new towns move together? Plus the 3-room vs 5-room profit myth",
-   "updated_at": "2026-11-18T11:20:00Z",
+   "updated_at": "2026-11-18T11:18:28Z",
    "subpages": [],
    "online": true
   }
