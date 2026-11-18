@@ -16,6 +16,11 @@
     "ducktrader-ig-media": {
       "name": "IG Media",
       "icon": "📸"
+    },
+    "sg-electoral-boundaries": {
+      "name": "SG Electoral Boundaries",
+      "icon": "🗳️",
+      "description": "Boundaries, votes & the MRT test, GE2006–GE2025"
     }
   }
 }

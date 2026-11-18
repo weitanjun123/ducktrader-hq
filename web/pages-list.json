@@ -39,6 +39,17 @@
     }
    ],
    "online": true
+  },
+  {
+   "repo": "sg-electoral-boundaries",
+   "url": "https://weitanjun123.github.io/sg-electoral-boundaries/",
+   "repo_url": "https://github.com/weitanjun123/sg-electoral-boundaries",
+   "name": "SG Electoral Boundaries",
+   "icon": "🗳️",
+   "description": "Boundaries, votes & the MRT test, GE2006–GE2025",
+   "updated_at": "2026-11-18T03:01:00Z",
+   "subpages": [],
+   "online": true
   }
  ]
 }
