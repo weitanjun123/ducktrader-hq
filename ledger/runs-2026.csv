@@ -501,7 +501,11 @@ run_id,repo,bot,workflow,started_at,ended_at,seconds,conclusion,event
 44199905736,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-17T23:30:08Z,2026-11-17T23:30:55Z,47,success,schedule
 44212287243,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-18T00:59:31Z,2026-11-18T00:59:58Z,27,success,schedule
 44215171464,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-18T01:21:25Z,2026-11-18T01:21:47Z,22,success,schedule
+44221235089,ducktrader-flight-bot,Flight Scout,Flight price scan,2026-11-18T02:10:03Z,2026-11-18T02:12:44Z,161,failure,push
+44222390037,ducktrader-flight-bot,Flight Scout,Flight price scan,2026-11-18T02:19:26Z,2026-11-18T02:22:32Z,186,success,push
 44222601775,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T02:21:07Z,2026-11-18T02:21:22Z,15,success,push
+44223225080,ducktrader-flight-bot,Flight Scout,Flight price scan,2026-11-18T02:26:09Z,2026-11-18T02:30:10Z,241,success,push
+44224278840,ducktrader-flight-bot,Flight Scout,Flight price scan,2026-11-18T02:34:38Z,2026-11-18T02:45:46Z,668,success,push
 44224419063,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-18T02:35:45Z,2026-11-18T02:36:04Z,19,success,schedule
 44224811083,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T02:39:02Z,2026-11-18T02:39:16Z,14,success,push
 44226771016,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T02:55:42Z,2026-11-18T02:56:24Z,42,success,dynamic
@@ -516,3 +520,16 @@ run_id,repo,bot,workflow,started_at,ended_at,seconds,conclusion,event
 44232310064,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:42:40Z,2026-11-18T03:43:18Z,38,success,dynamic
 44232345368,sg-transit-planner,MRT Planner,Data bot,2026-11-18T03:42:59Z,2026-11-18T03:44:20Z,81,success,schedule
 44232494834,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:44:18Z,2026-11-18T03:45:00Z,42,success,dynamic
+44234967702,sg-transit-planner,MRT Planner,.github/workflows/data.yml,2026-11-18T04:06:08Z,2026-11-18T04:06:08Z,0,failure,push
+44234966669,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:06:08Z,2026-11-18T04:06:48Z,40,success,dynamic
+44236247654,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:17:05Z,2026-11-18T04:17:44Z,39,success,dynamic
+44236258480,sg-transit-planner,MRT Planner,Data bot,2026-11-18T04:17:10Z,2026-11-18T04:18:33Z,83,success,workflow_dispatch
+44236477407,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:19:04Z,2026-11-18T04:19:43Z,39,success,dynamic
+44236487432,sg-transit-planner,MRT Planner,Data bot,2026-11-18T04:19:09Z,2026-11-18T04:21:04Z,115,success,workflow_dispatch
+44236579853,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-18T04:19:57Z,2026-11-18T04:20:24Z,27,success,schedule
+44236705653,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:21:02Z,2026-11-18T04:21:42Z,40,success,dynamic
+44236849329,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:22:16Z,2026-11-18T04:22:56Z,40,success,dynamic
+44238633714,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:37:37Z,2026-11-18T04:38:24Z,47,success,dynamic
+44238641998,sg-transit-planner,MRT Planner,Data bot,2026-11-18T04:37:41Z,2026-11-18T04:39:04Z,83,success,workflow_dispatch
+44238784140,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T04:39:01Z,2026-11-18T04:39:47Z,46,success,dynamic
+44238864905,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T04:39:46Z,2026-11-18T04:40:01Z,15,success,schedule

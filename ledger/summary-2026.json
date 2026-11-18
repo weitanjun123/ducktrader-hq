@@ -1,8 +1,8 @@
 {
  "year": 2026,
- "updated_at": "2026-11-18T03:57:54.089Z",
- "total_hours": 39.08,
- "total_runs": 517,
+ "updated_at": "2026-11-18T04:55:22.010Z",
+ "total_hours": 39.6,
+ "total_runs": 534,
  "note": "share_pct = this bot's hours / all bots' hours. Use it as each bot's slice of the year-end bonus pool.",
  "bots": [
   {
@@ -12,16 +12,16 @@
    "hours": 26.78,
    "runs": 77,
    "success_pct": 97,
-   "share_pct": 68.53
+   "share_pct": 67.63
   },
   {
    "rank": 2,
    "repo": "ducktrader-ig-bot",
    "bot": "IG Manager",
    "hours": 3.87,
-   "runs": 89,
+   "runs": 90,
    "success_pct": 98,
-   "share_pct": 9.9
+   "share_pct": 9.78
   },
   {
    "rank": 3,
@@ -30,7 +30,7 @@
    "hours": 2.56,
    "runs": 82,
    "success_pct": 99,
-   "share_pct": 6.55
+   "share_pct": 6.46
   },
   {
    "rank": 4,
@@ -39,23 +39,23 @@
    "hours": 2.23,
    "runs": 2,
    "success_pct": 100,
-   "share_pct": 5.7
+   "share_pct": 5.62
   },
   {
    "rank": 5,
    "repo": "sg-transit-planner",
    "bot": "MRT Planner",
-   "hours": 1.38,
-   "runs": 55,
-   "success_pct": 100,
-   "share_pct": 3.52
+   "hours": 1.54,
+   "runs": 66,
+   "success_pct": 98,
+   "share_pct": 3.88
   },
   {
    "rank": 6,
    "repo": "ducktrader-alerts",
    "bot": "Setup Scanner",
-   "hours": 0.75,
-   "runs": 74,
+   "hours": 0.76,
+   "runs": 75,
    "success_pct": 100,
    "share_pct": 1.92
   },
@@ -66,7 +66,7 @@
    "hours": 0.52,
    "runs": 41,
    "success_pct": 95,
-   "share_pct": 1.32
+   "share_pct": 1.3
   },
   {
    "rank": 8,
@@ -75,46 +75,55 @@
    "hours": 0.4,
    "runs": 32,
    "success_pct": 100,
-   "share_pct": 1.02
+   "share_pct": 1
   },
   {
    "rank": 9,
+   "repo": "ducktrader-flight-bot",
+   "bot": "Flight Scout",
+   "hours": 0.35,
+   "runs": 4,
+   "success_pct": 75,
+   "share_pct": 0.88
+  },
+  {
+   "rank": 10,
    "repo": "ducktrader-fpl",
    "bot": "FPL Scout",
    "hours": 0.23,
    "runs": 16,
    "success_pct": 100,
-   "share_pct": 0.6
+   "share_pct": 0.59
   },
   {
-   "rank": 10,
+   "rank": 11,
    "repo": "ducktrader-options",
    "bot": "Options Desk",
    "hours": 0.15,
    "runs": 32,
    "success_pct": 97,
-   "share_pct": 0.39
+   "share_pct": 0.38
   },
   {
-   "rank": 11,
+   "rank": 12,
    "repo": "ducktrader-yields",
    "bot": "Yields Bot",
    "hours": 0.1,
    "runs": 11,
    "success_pct": 73,
-   "share_pct": 0.26
+   "share_pct": 0.25
   },
   {
-   "rank": 12,
+   "rank": 13,
    "repo": "ducktrader-cea-champions",
    "bot": "CEA Champions",
    "hours": 0.09,
    "runs": 3,
    "success_pct": 100,
-   "share_pct": 0.24
+   "share_pct": 0.23
   },
   {
-   "rank": 13,
+   "rank": 14,
    "repo": "ducktrader-sectors",
    "bot": "Sector Rotation",
    "hours": 0.03,
