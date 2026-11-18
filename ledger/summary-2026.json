@@ -1,8 +1,8 @@
 {
  "year": 2026,
- "updated_at": "2026-11-18T03:20:37.821Z",
- "total_hours": 39.02,
- "total_runs": 512,
+ "updated_at": "2026-11-18T03:57:54.089Z",
+ "total_hours": 39.08,
+ "total_runs": 517,
  "note": "share_pct = this bot's hours / all bots' hours. Use it as each bot's slice of the year-end bonus pool.",
  "bots": [
   {
@@ -12,14 +12,14 @@
    "hours": 26.78,
    "runs": 77,
    "success_pct": 97,
-   "share_pct": 68.63
+   "share_pct": 68.53
   },
   {
    "rank": 2,
    "repo": "ducktrader-ig-bot",
    "bot": "IG Manager",
-   "hours": 3.86,
-   "runs": 88,
+   "hours": 3.87,
+   "runs": 89,
    "success_pct": 98,
    "share_pct": 9.9
   },
@@ -30,7 +30,7 @@
    "hours": 2.56,
    "runs": 82,
    "success_pct": 99,
-   "share_pct": 6.56
+   "share_pct": 6.55
   },
   {
    "rank": 4,
@@ -39,16 +39,16 @@
    "hours": 2.23,
    "runs": 2,
    "success_pct": 100,
-   "share_pct": 5.71
+   "share_pct": 5.7
   },
   {
    "rank": 5,
    "repo": "sg-transit-planner",
    "bot": "MRT Planner",
-   "hours": 1.32,
-   "runs": 51,
+   "hours": 1.38,
+   "runs": 55,
    "success_pct": 100,
-   "share_pct": 3.39
+   "share_pct": 3.52
   },
   {
    "rank": 6,
@@ -57,7 +57,7 @@
    "hours": 0.75,
    "runs": 74,
    "success_pct": 100,
-   "share_pct": 1.93
+   "share_pct": 1.92
   },
   {
    "rank": 7,

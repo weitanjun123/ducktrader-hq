@@ -511,3 +511,8 @@ run_id,repo,bot,workflow,started_at,ended_at,seconds,conclusion,event
 44227149746,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T02:59:03Z,2026-11-18T02:59:54Z,51,success,dynamic
 44227521853,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:02:08Z,2026-11-18T03:03:32Z,84,success,dynamic
 44227650213,ducktrader-options,Options Desk,Daily options signals,2026-11-18T03:03:14Z,2026-11-18T03:03:27Z,13,success,schedule
+44231689385,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T03:37:10Z,2026-11-18T03:37:25Z,15,success,schedule
+44232254001,sg-transit-planner,MRT Planner,Crowd snapshots,2026-11-18T03:42:11Z,2026-11-18T03:42:42Z,31,success,schedule
+44232310064,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:42:40Z,2026-11-18T03:43:18Z,38,success,dynamic
+44232345368,sg-transit-planner,MRT Planner,Data bot,2026-11-18T03:42:59Z,2026-11-18T03:44:20Z,81,success,schedule
+44232494834,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:44:18Z,2026-11-18T03:45:00Z,42,success,dynamic
