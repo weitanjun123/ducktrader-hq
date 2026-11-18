@@ -387,6 +387,15 @@ function drawDuck(d, now){
   }
   ctx.restore();
   if (d.carry){ ctx.font="7px sans-serif"; ctx.fillText(d.carry, x+5, y-4); }
+  // hardworking bar (relative to the hardest-working bot = full bar)
+  const wk = d.bot.week;
+  if (wk){
+    const bx = x+10, top = y-19, H = 16, f = Math.max(0, Math.min(1, wk.bar||0)), fh = Math.round(H*f);
+    ctx.fillStyle="#000000b0"; ctx.fillRect(bx-1, top-1, 5, H+2);
+    ctx.fillStyle="#3a3e47"; ctx.fillRect(bx, top, 3, H);
+    ctx.fillStyle = wk.top ? "#f3d36b" : "#d4af37"; ctx.fillRect(bx, top+H-fh, 3, fh);
+    if (wk.top){ ctx.font="7px sans-serif"; ctx.fillText("⭐", bx-2.5, top-2); }
+  }
   // status marker
   const s=d.bot.state;
   if (s==="failed" && Math.floor(now/500)%2){ ctx.fillStyle="#e5484d"; ctx.fillRect(x-1,y-30,2,5); ctx.fillRect(x-1,y-24,2,1); }
@@ -413,8 +422,9 @@ function frame(now){
     ctx.fillStyle="#141414"; ctx.font="600 5.4px Oswald, sans-serif"; ctx.fillText("TODAY", 3*T+5, T+2);
     ctx.font="500 4.6px Oswald, sans-serif"; ctx.fillStyle="#2a2f38"; ctx.fillText(runs+" runs / 24h", 3*T+28, T+2);
     ctx.fillStyle="#2b8a5c"; ctx.fillText(good+" good", 3*T+65, T+2);
-    ctx.fillStyle="#b8860b"; ctx.fillText(work+" working", 3*T+5, T+7.5);
-    ctx.fillStyle=help?"#c2373b":"#2a2f38"; ctx.fillText(help+" need help", 3*T+40, T+7.5);
+    const top3 = bots.filter(b=>b.week&&b.week.seconds>0).sort((a,b)=>a.week.rank-b.week.rank).slice(0,3);
+    ctx.fillStyle="#7a5a10"; ctx.font="600 4.4px Oswald, sans-serif";
+    ctx.fillText("🏆 "+(top3.length?top3.map((b,k)=>(k+1)+"."+b.name.split(" ")[0]+" "+Math.round(b.week.index)+"%").join("  "):"hardest workers soon"), 3*T+5, T+7.5);
   }
   // server LEDs
   for (let i=19;i<=22;i++) for(let k=0;k<5;k++){ const on = (Math.sin(now/300+i*7+k*3)>0.2); ctx.fillStyle = on ? (k%2?"#3fbf7f":"#d4af37") : "#272c34"; ctx.fillRect(i*T+11,T-3+k*4,1,1); ctx.fillRect(i*T+9,T-3+k*4,1,1); }

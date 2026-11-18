@@ -14,3 +14,7 @@ Living office: ducks walk between the trading floor, pantry, lounge, meeting roo
 
 ## My Pages launcher
 Lists every public repo with GitHub Pages switched on (search + ⭐ pins). Refreshed only when you run the "Refresh My Pages" workflow by hand; the 20-min bot update no longer checks Pages. Hide a repo or set its name/emoji in `pages.json`.
+
+## Hardworking ranking + bonus ledger
+- **7-day ranking:** work hours = total run time of each bot's GitHub jobs in the last 7 days. Index = bot hours ÷ all bots' hours. Each duck carries a bar (full bar + ⭐ = hardest worker).
+- **Year ledger:** the daily "Work-hours ledger" workflow (00:13 SGT) logs every finished run once into `ledger/runs-YYYY.csv` and rebuilds `ledger/summary-YYYY.csv/.json` (hours, runs, success %, share %). `share_pct` = that bot's slice of the year-end bonus pool.

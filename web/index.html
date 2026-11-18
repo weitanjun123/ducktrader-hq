@@ -98,6 +98,12 @@ h1 span{color:var(--white)}
 .card.pinned .pin{opacity:1}
 .off{color:var(--bad)}
 .empty{color:var(--mute);font-size:14px;padding:6px 2px}
+/* ranking */
+.win{font-family:Oswald;font-size:14px;color:var(--mute);letter-spacing:0;margin-left:6px}
+.rank td{white-space:nowrap}
+.bar{display:inline-block;width:60px;height:8px;background:#30343c;border-radius:2px;vertical-align:middle;margin-right:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold)}
+.rank tr.top td{color:var(--gold2)}
 /* table */
 h2{font-family:"Bebas Neue";font-weight:400;font-size:28px;letter-spacing:1.5px;color:var(--gold2);margin:26px 0 8px}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -153,6 +159,12 @@ footer{margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
     <thead><tr><th>Bot</th><th>State</th><th>Last run</th><th class="hide-sm">Next run</th><th class="hide-sm">24h</th></tr></thead>
     <tbody id="rows"></tbody>
   </table>
+  <h2>🏆 Hardworking Ranking <span class="win">last 7 days</span></h2>
+  <div class="sub" id="worksub" style="margin:-4px 0 8px"></div>
+  <table class="rank">
+    <thead><tr><th>#</th><th>Bot</th><th>Hours</th><th>Index</th><th class="hide-sm">Tasks</th><th class="hide-sm">✓</th><th class="hide-sm">Year</th></tr></thead>
+    <tbody id="rank"></tbody>
+  </table>
   <footer>Updates every ~20 min from GitHub Actions · times in SGT · DUCKTRADER4444</footer>
 </div>
 
@@ -207,6 +219,7 @@ function openSheet(b){
     <button class="close" onclick="closeSheet()" aria-label="Close">✕</button>
     <h3>${b.icon||""} ${esc(b.name)}</h3>
     <div class="role">${esc(b.role)} · <a href="${b.url}" target="_blank" rel="noopener">${esc(b.repo)}</a></div>
+    ${b.week?`<div class="role" style="color:var(--gold2)">🏆 #${b.week.rank} of ${DATA.bots.length} · ${hrs(b.week.hours)} this week · ${b.week.index}% of all work · ${b.week.runs} tasks${b.week.top?" · ⭐ hardest worker":""}</div>`:""}
     ${b.error?`<div class="alertbox">Can't read this repo: ${esc(b.error)}</div>`:""}
     ${fails}${wfs}
     <div class="meta" style="margin-top:12px;color:var(--mute);font-size:12px">Squares = last runs, newest first · tap one to open it on GitHub</div>`;
@@ -254,13 +267,34 @@ function renderPages(){
 }
 document.getElementById("q").addEventListener("input", renderPages);
 
+// ---------- hardworking ranking ----------
+let YEAR=null;
+fetch("summary-"+new Date().getFullYear()+".json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{ YEAR=j; if(DATA) renderRank(); }).catch(()=>{});
+const hrs = h => h==null?"—":h<1?Math.round(h*60)+"m":h.toFixed(1)+"h";
+function renderRank(){
+  const bots=[...DATA.bots].filter(b=>b.week).sort((a,b)=>a.week.rank-b.week.rank);
+  const yr = Object.fromEntries((YEAR?.bots||[]).map(b=>[b.repo,b]));
+  document.getElementById("worksub").innerHTML = DATA.work ? `All bots worked <b>${hrs(DATA.work.total_hours)}</b> in the last 7 days · index = bot's hours ÷ all bots' hours${YEAR?` · year so far: <b>${hrs(YEAR.total_hours)}</b>`:""}` : "";
+  document.getElementById("rank").innerHTML = bots.map(b=>{ const w=b.week, y=yr[b.repo]; return `
+    <tr class="${w.top?"top":""}" data-r="${esc(b.repo)}">
+      <td class="num">${w.rank}${w.top?" ⭐":""}</td>
+      <td>${b.icon||""} ${esc(b.name)}</td>
+      <td class="num">${hrs(w.hours)}</td>
+      <td class="num"><span class="bar"><i style="width:${Math.round((w.bar||0)*100)}%"></i></span>${w.index}%</td>
+      <td class="num hide-sm">${w.runs}</td>
+      <td class="num hide-sm">${w.success==null?"—":w.success+"%"}</td>
+      <td class="num hide-sm">${y?hrs(y.hours)+" · "+y.share_pct+"%":"—"}</td>
+    </tr>`; }).join("") || '<tr><td colspan="7" class="empty">Ranking appears after the next update.</td></tr>';
+  document.querySelectorAll("#rank [data-r]").forEach(el=>el.onclick=()=>openSheet(DATA.bots.find(b=>b.repo===el.dataset.r)));
+}
+
 async function load(){
   try{
     const r = await fetch("status.json?t="+Date.now(), {cache:"no-store"});
     if(!r.ok) throw 0;
     DATA = await r.json(); document.getElementById("demo").style.display="none";
   }catch{ if(!DATA||DATA.__demo){ DATA = demo(); DATA.__demo=true; document.getElementById("demo").style.display="block"; } }
-  render(); renderPages(); Office.setData(DATA);
+  render(); renderPages(); renderRank(); Office.setData(DATA);
 }
 function tickClock(){ document.getElementById("clock").textContent = fmt(new Date().toISOString(),{hour:"2-digit",minute:"2-digit",hour12:false})+" SGT"; }
 Office.start(document.getElementById("cv"), openSheet);

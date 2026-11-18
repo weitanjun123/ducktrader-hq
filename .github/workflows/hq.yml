@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir -p site
           cp -r web/* site/
+          cp ledger/summary-*.json site/ 2>/dev/null || true
           node scripts/collect.mjs
       - uses: actions/upload-pages-artifact@v3
         with:

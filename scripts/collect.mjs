@@ -86,6 +86,20 @@ function slimRun(r) {
   };
 }
 
+// All runs created in [from, to] (YYYY-MM-DD, inclusive), following pages (API caps one query at 1000 results)
+async function runsBetween(repo, from, to) {
+  const out = [];
+  for (let page = 1; page <= 10; page++) {
+    const j = await gh(`/repos/${repo}/actions/runs?per_page=100&page=${page}&created=${from}..${to}`);
+    out.push(...j.workflow_runs);
+    if (j.workflow_runs.length < 100) break;
+  }
+  return out;
+}
+const day = (t) => new Date(t).toISOString().slice(0, 10);
+const runSeconds = (r) => r.status === "completed"
+  ? Math.max(0, Math.round((Date.parse(r.updated_at) - Date.parse(r.run_started_at || r.created_at)) / 1000)) : 0;
+
 async function collectBot(bot) {
   const repo = `${OWNER}/${bot.repo}`;
   const out = { ...bot, url: `https://github.com/${repo}`, workflows: [], state: "idle" };
@@ -118,6 +132,16 @@ async function collectBot(bot) {
       return latest && BAD.has(latest.conclusion);
     }).map((w) => ({ workflow: w.name, run: w.runs.find((r) => r.status === "completed") }));
     out.runs_24h = all.filter((r) => Date.now() - Date.parse(r.started_at) < 86400e3).length;
+    // last 7 days of work
+    const cutoff = Date.now() - 7 * 86400e3;
+    const week = (await runsBetween(repo, day(cutoff), day(Date.now() + 86400e3)))
+      .filter((r) => Date.parse(r.run_started_at || r.created_at) >= cutoff && r.conclusion !== "skipped");
+    const done = week.filter((r) => r.status === "completed" && r.conclusion !== "cancelled");
+    out.week = {
+      seconds: week.reduce((t, r) => t + runSeconds(r), 0),
+      runs: week.length,
+      success: done.length ? Math.round(100 * done.filter((r) => r.conclusion === "success").length / done.length) : null,
+    };
     out.state = out.running.length ? "running" : out.failing.length ? "failed" : out.last_run ? "ok" : "idle";
   } catch (e) {
     out.state = "unknown";
@@ -182,6 +206,72 @@ async function collectPages(){
   return out;
 }
 
+// Every completed run is written once (deduped by run id) to ledger/runs-YYYY.csv,
+// then ledger/summary-YYYY.{json,csv} is rebuilt: hours, runs and share of all work per bot.
+const csvCell = (v) => (/[",\n]/.test(String(v ?? "")) ? `"${String(v).replace(/"/g, '""')}"` : String(v ?? ""));
+function parseCsv(text) {
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
+    else if (c === '"') q = true; else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n") { row.push(cell); rows.push(row); row = []; cell = ""; } else if (c !== "\r") cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+const HEAD = ["run_id", "repo", "bot", "workflow", "started_at", "ended_at", "seconds", "conclusion", "event"];
+async function updateLedger(bots) {
+  await mkdir("ledger", { recursive: true });
+  const year = new Date().getUTCFullYear();
+  const file = `ledger/runs-${year}.csv`;
+  let rows = [];
+  try { rows = parseCsv(await readFile(file, "utf8")).slice(1).filter((r) => r.length >= HEAD.length); } catch {}
+  const seen = new Set(rows.map((r) => r[0]));
+  const lastByRepo = {};
+  for (const r of rows) if (!lastByRepo[r[1]] || r[4] > lastByRepo[r[1]]) lastByRepo[r[1]] = r[4];
+  let added = 0;
+  for (const b of bots) {
+    const repo = `${OWNER}/${b.repo}`;
+    // resume 3 days before the last logged run, or backfill from 1 Jan in weekly chunks
+    let from = lastByRepo[b.repo] ? Date.parse(lastByRepo[b.repo]) - 3 * 86400e3 : Date.UTC(year, 0, 1);
+    from = Math.max(from, Date.UTC(year, 0, 1));
+    try {
+      for (let t = from; t <= Date.now(); t += 7 * 86400e3) {
+        const runs = await runsBetween(repo, day(t), day(Math.min(t + 6 * 86400e3, Date.now() + 86400e3)));
+        for (const r of runs) {
+          if (r.status !== "completed" || ["skipped", "cancelled"].includes(r.conclusion) || seen.has(String(r.id))) continue;
+          const start = r.run_started_at || r.created_at;
+          if (new Date(start).getUTCFullYear() !== year) continue;
+          rows.push([String(r.id), b.repo, b.name, r.name, start, r.updated_at, String(runSeconds(r)), r.conclusion, r.event]);
+          seen.add(String(r.id)); added++;
+        }
+      }
+    } catch (e) { console.error(`ledger ${b.repo}: ${e.message}`); }
+  }
+  rows.sort((a, b) => (a[4] < b[4] ? -1 : 1));
+  await writeFile(file, [HEAD, ...rows].map((r) => r.map(csvCell).join(",")).join("\n") + "\n");
+  // summary
+  const per = {};
+  for (const r of rows) {
+    const k = r[1], p = (per[k] ||= { repo: k, bot: r[2], seconds: 0, runs: 0, ok: 0 });
+    p.bot = r[2]; p.seconds += +r[6]; p.runs++; if (r[7] === "success") p.ok++;
+  }
+  const names = Object.fromEntries(bots.map((b) => [b.repo, b.name]));
+  const total = Object.values(per).reduce((t, p) => t + p.seconds, 0);
+  const list = Object.values(per).sort((a, b) => b.seconds - a.seconds).map((p, i) => ({
+    rank: i + 1, repo: p.repo, bot: names[p.repo] || p.bot, hours: +(p.seconds / 3600).toFixed(2), runs: p.runs,
+    success_pct: p.runs ? Math.round(100 * p.ok / p.runs) : null,
+    share_pct: total ? +(100 * p.seconds / total).toFixed(2) : 0,
+  }));
+  const summary = { year, updated_at: new Date().toISOString(), total_hours: +(total / 3600).toFixed(2), total_runs: rows.length,
+    note: "share_pct = this bot's hours / all bots' hours. Use it as each bot's slice of the year-end bonus pool.", bots: list };
+  await writeFile(`ledger/summary-${year}.json`, JSON.stringify(summary, null, 1) + "\n");
+  await writeFile(`ledger/summary-${year}.csv`, [["rank", "bot", "repo", "hours", "runs", "success_pct", "share_pct"],
+    ...list.map((p) => [p.rank, p.bot, p.repo, p.hours, p.runs, p.success_pct, p.share_pct])].map((r) => r.map(csvCell).join(",")).join("\n") + "\n");
+  console.log(`Ledger ${year}: +${added} runs, ${rows.length} total, ${summary.total_hours} h`);
+}
+
 // Manual mode: only refresh the My Pages list (run from the "Refresh My Pages" workflow)
 if (process.env.HQ_PAGES === "1") {
   const pages = await collectPages();
@@ -193,7 +283,23 @@ if (process.env.HQ_PAGES === "1") {
 const bots = JSON.parse(await readFile("bots.json", "utf8"));
 const results = [];
 for (const b of bots) results.push(await collectBot(b)); // sequential: kind to the API
+// ---------- hardworking ranking (relative to all bots) ----------
+const totalSec = results.reduce((t, b) => t + (b.week?.seconds || 0), 0);
+const maxSec = Math.max(0, ...results.map((b) => b.week?.seconds || 0));
+[...results].sort((a, b) => (b.week?.seconds || 0) - (a.week?.seconds || 0)).forEach((b, i) => {
+  if (!b.week) return;
+  b.week.hours = +(b.week.seconds / 3600).toFixed(2);
+  b.week.index = totalSec ? +(100 * b.week.seconds / totalSec).toFixed(1) : 0;   // share of all work, %
+  b.week.bar = maxSec ? +(b.week.seconds / maxSec).toFixed(3) : 0;               // 1 = hardest worker
+  b.week.rank = i + 1;
+  b.week.top = maxSec > 0 && b.week.seconds === maxSec;
+});
+const work = { window_days: 7, total_hours: +(totalSec / 3600).toFixed(2), bots: results.length };
+
+// ---------- year ledger (daily "Work-hours ledger" workflow) ----------
+if (process.env.HQ_LEDGER === "1") await updateLedger(bots);
+
 await mkdir(OUT.split("/").slice(0, -1).join("/") || ".", { recursive: true });
-await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, bots: results }, null, 1));
+await writeFile(OUT, JSON.stringify({ generated_at: new Date().toISOString(), owner: OWNER, work, bots: results }, null, 1));
 const tally = results.reduce((t, b) => ((t[b.state] = (t[b.state] || 0) + 1), t), {});
 console.log("Wrote", OUT, tally);

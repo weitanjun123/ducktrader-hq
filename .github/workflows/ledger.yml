@@ -1,0 +1,38 @@
+name: Work-hours ledger
+
+# Once a day (00:13 SGT) log every finished bot run into ledger/ for the year-end bonus.
+on:
+  schedule:
+    - cron: "13 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ledger
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Update ledger
+        env:
+          HQ_TOKEN: ${{ secrets.HQ_TOKEN }}
+          HQ_LEDGER: "1"
+          HQ_OUT: /tmp/status.json
+        run: node scripts/collect.mjs
+      - name: Save ledger
+        run: |
+          git config user.name "ducktrader-hq-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ledger
+          git diff --cached --quiet && exit 0
+          git commit -m "Work-hours ledger $(date -u +%F)"
+          git pull --rebase -q origin main
+          git push
