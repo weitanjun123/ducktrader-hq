@@ -17,4 +17,4 @@ Lists every public repo with GitHub Pages switched on (search + ⭐ pins). Refre
 
 ## Hardworking ranking + bonus ledger
 - **7-day ranking:** work hours = total run time of each bot's GitHub jobs in the last 7 days. Index = bot hours ÷ all bots' hours. Each duck carries a bar (full bar + ⭐ = hardest worker).
-- **Year ledger:** the daily "Work-hours ledger" workflow (00:13 SGT) logs every finished run once into `ledger/runs-YYYY.csv` and rebuilds `ledger/summary-YYYY.csv/.json` (hours, runs, success %, share %). `share_pct` = that bot's slice of the year-end bonus pool.
+- **Year ledger:** the weekly "Work-hours ledger" workflow (Monday 00:13 SGT) logs every finished run once into `ledger/runs-YYYY.csv` and rebuilds `ledger/summary-YYYY.csv/.json` (hours, runs, success %, share %). `share_pct` = that bot's slice of the year-end bonus pool.

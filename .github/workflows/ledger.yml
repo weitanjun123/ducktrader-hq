@@ -1,9 +1,9 @@
 name: Work-hours ledger
 
-# Once a day (00:13 SGT) log every finished bot run into ledger/ for the year-end bonus.
+# Once a week (Monday 00:13 SGT) log every finished bot run into ledger/ for the year-end bonus.
 on:
   schedule:
-    - cron: "13 16 * * *"
+    - cron: "13 16 * * 0"
   workflow_dispatch:
 
 permissions:
