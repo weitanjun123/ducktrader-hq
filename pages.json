@@ -22,5 +22,15 @@
       "icon": "🗳️",
       "description": "Boundaries, votes & the MRT test, GE2006–GE2025"
     }
-  }
+  },
+  "standalone": [
+    {
+      "repo": "sg-transit-planner",
+      "path": "newtowns.html",
+      "id": "hdb-newtowns",
+      "name": "HDB New Towns: Punggol & Sengkang vs Tengah",
+      "icon": "🏘️",
+      "description": "BTO start → resale prices, do new towns move together? Plus the 3-room vs 5-room profit myth"
+    }
+  ]
 }

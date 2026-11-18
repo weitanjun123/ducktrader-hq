@@ -50,6 +50,17 @@
    "updated_at": "2026-11-18T03:01:00Z",
    "subpages": [],
    "online": true
+  },
+  {
+   "repo": "hdb-newtowns",
+   "url": "https://weitanjun123.github.io/sg-transit-planner/newtowns.html",
+   "repo_url": "https://github.com/weitanjun123/sg-transit-planner",
+   "name": "HDB New Towns: Punggol & Sengkang vs Tengah",
+   "icon": "🏘️",
+   "description": "BTO start → resale prices, do new towns move together? Plus the 3-room vs 5-room profit myth",
+   "updated_at": "2026-11-18T11:20:00Z",
+   "subpages": [],
+   "online": true
   }
  ]
 }

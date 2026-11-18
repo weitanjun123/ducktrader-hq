@@ -203,6 +203,16 @@ async function collectPages(){
     } catch (e) { console.error(`pages tree ${r.name}: ${e.message}`); }
     out.push(site);
   }
+  // pages that live inside another repo but get their own card (not grouped under that site)
+  for (const sa of cfg.standalone || []) {
+    const parent = out.find((p) => p.repo === sa.repo);
+    const base = parent ? parent.url : `https://${OWNER.toLowerCase()}.github.io/${sa.repo}/`;
+    const url = base + sa.path;
+    for (const p of out) p.subpages = p.subpages.filter((x) => x.url !== url);
+    const info = await pageInfo(url);
+    out.push({ repo: sa.id, url, repo_url: `https://github.com/${OWNER}/${sa.repo}`, name: sa.name, icon: sa.icon || "🌐",
+      description: sa.description || info?.title || "", updated_at: parent?.updated_at || new Date().toISOString(), subpages: [], online: !!info });
+  }
   return out;
 }
 
