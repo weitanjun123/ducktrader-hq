@@ -1,0 +1,513 @@
+run_id,repo,bot,workflow,started_at,ended_at,seconds,conclusion,event
+39791545574,ducktrader-alerts,Setup Scanner,Post alerts to Telegram,2026-10-22T13:57:41Z,2026-10-22T13:58:02Z,21,success,push
+39798013994,ducktrader-alerts,Setup Scanner,Update setups.json,2026-10-22T14:42:24Z,2026-10-22T14:52:33Z,609,success,push
+39801286038,ducktrader-options,Options Desk,Daily options signals,2026-10-22T15:10:11Z,2026-10-22T15:11:14Z,63,success,workflow_dispatch
+39803836508,ducktrader-alerts,Setup Scanner,Update setups.json,2026-10-22T15:20:04Z,2026-10-22T15:20:15Z,11,success,push
+39804760100,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-22T15:25:53Z,2026-10-22T15:26:33Z,40,success,workflow_dispatch
+39805406139,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-22T15:30:04Z,2026-10-22T15:30:43Z,39,success,workflow_dispatch
+39805882979,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-22T15:33:01Z,2026-10-22T15:33:28Z,27,success,workflow_dispatch
+39806644079,ducktrader-options,Options Desk,"Self-test (live data, private chat)",2026-10-22T16:00:02Z,2026-10-22T16:00:39Z,37,success,workflow_dispatch
+39811061580,ducktrader-options,Options Desk,Delete a bot message,2026-10-22T16:10:56Z,2026-10-22T16:11:05Z,9,success,workflow_dispatch
+39873064350,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-22T23:38:00Z,2026-10-22T23:38:37Z,37,success,schedule
+39875877885,ducktrader-options,Options Desk,Daily options signals,2026-10-23T00:04:44Z,2026-10-23T00:04:56Z,12,success,schedule
+40002385736,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-23T18:19:46Z,2026-10-23T18:20:08Z,22,success,schedule
+40040304811,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-23T23:33:02Z,2026-10-23T23:33:38Z,36,success,schedule
+40042300159,ducktrader-options,Options Desk,Daily options signals,2026-10-23T23:55:11Z,2026-10-23T23:55:22Z,11,success,schedule
+40047131273,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-10-24T00:52:38Z,2026-10-24T00:52:55Z,17,success,schedule
+40391190322,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-26T19:56:21Z,2026-10-26T19:56:43Z,22,success,schedule
+40424149829,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T00:05:45Z,2026-10-27T00:06:02Z,17,success,schedule
+40427952221,ducktrader-options,Options Desk,Daily options signals,2026-10-27T00:41:01Z,2026-10-27T00:41:14Z,13,success,schedule
+40428125080,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T00:42:43Z,2026-10-27T00:43:23Z,40,success,workflow_dispatch
+40460321010,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T06:18:30Z,2026-10-27T06:18:51Z,21,success,schedule
+40467793418,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T07:33:03Z,2026-10-27T08:30:53Z,3470,success,workflow_dispatch
+40471343906,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T08:07:18Z,2026-10-27T08:07:43Z,25,success,workflow_dispatch
+40491948585,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T10:53:20Z,2026-10-27T11:51:53Z,3513,success,workflow_dispatch
+40510193333,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T13:13:43Z,2026-10-27T13:14:06Z,23,success,schedule
+40513530629,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T13:36:37Z,2026-10-27T13:37:20Z,43,success,schedule
+40565047178,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T18:59:40Z,2026-10-27T19:00:03Z,23,success,schedule
+40569051866,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T19:26:00Z,2026-10-27T19:26:37Z,37,success,schedule
+40602692731,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T23:31:20Z,2026-10-27T23:31:45Z,25,failure,workflow_dispatch
+40602803370,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T23:32:19Z,2026-10-27T23:32:41Z,22,success,workflow_dispatch
+40604381282,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-27T23:46:18Z,2026-10-27T23:46:54Z,36,success,schedule
+40605615525,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-27T23:57:34Z,2026-10-27T23:57:56Z,22,success,workflow_dispatch
+40605929516,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-28T00:00:29Z,2026-10-28T00:00:47Z,18,success,schedule
+40610111649,ducktrader-options,Options Desk,Daily options signals,2026-10-28T00:39:09Z,2026-10-28T00:39:20Z,11,success,schedule
+40639828374,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-28T05:45:24Z,2026-10-28T05:45:42Z,18,success,schedule
+40643333812,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-28T06:21:17Z,2026-10-28T06:21:47Z,30,success,schedule
+40648848346,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-28T07:15:02Z,2026-10-28T07:15:36Z,34,success,workflow_dispatch
+40649281244,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-28T07:19:02Z,2026-10-28T07:19:37Z,35,success,workflow_dispatch
+40660264170,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-10-28T08:55:15Z,2026-10-28T08:55:54Z,39,failure,workflow_dispatch
+40660423649,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-10-28T08:56:35Z,2026-10-28T08:57:13Z,38,failure,workflow_dispatch
+40660546098,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-10-28T08:57:35Z,2026-10-28T08:58:11Z,36,failure,workflow_dispatch
+40660942802,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-10-28T09:00:45Z,2026-10-28T09:01:26Z,41,success,workflow_dispatch
+40692303389,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-28T12:58:41Z,2026-10-28T12:59:42Z,61,success,workflow_dispatch
+40692335728,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-28T12:58:55Z,2026-10-28T12:59:15Z,20,success,schedule
+40695533646,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-28T13:20:31Z,2026-10-28T13:21:22Z,51,failure,workflow_dispatch
+40695734428,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-28T13:21:50Z,2026-10-28T13:22:44Z,54,failure,workflow_dispatch
+40695949546,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-28T13:23:16Z,2026-10-28T13:24:03Z,47,success,workflow_dispatch
+40697804077,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-28T13:35:19Z,2026-10-28T13:35:42Z,23,success,schedule
+40702540779,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-28T14:05:31Z,2026-10-28T15:11:36Z,3965,success,schedule
+40751610074,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-28T19:08:37Z,2026-10-28T19:09:00Z,23,success,schedule
+40755390512,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-28T19:33:39Z,2026-10-28T19:34:16Z,37,success,schedule
+40756009161,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-28T19:37:49Z,2026-10-28T20:44:43Z,4014,success,schedule
+40788757126,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-28T23:38:28Z,2026-10-28T23:38:47Z,19,success,schedule
+40791180788,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-29T00:00:34Z,2026-10-29T00:01:13Z,39,success,schedule
+40791375678,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T00:02:15Z,2026-10-29T01:08:37Z,3982,success,schedule
+40793864750,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-29T00:24:36Z,2026-10-29T00:24:59Z,23,success,schedule
+40797898139,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T01:02:08Z,2026-10-29T02:15:01Z,4373,success,schedule
+40798607990,ducktrader-options,Options Desk,Daily options signals,2026-10-29T01:08:52Z,2026-10-29T01:09:05Z,13,success,schedule
+40825734460,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-29T05:50:54Z,2026-10-29T05:51:15Z,21,success,schedule
+40826155113,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T05:55:23Z,2026-10-29T07:01:46Z,3983,success,schedule
+40829783790,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-29T06:32:02Z,2026-10-29T06:32:24Z,22,success,schedule
+40848505008,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-29T09:17:42Z,2026-10-29T09:19:26Z,104,success,workflow_dispatch
+40878754204,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-29T13:05:19Z,2026-10-29T13:05:42Z,23,success,schedule
+40879641285,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T13:11:17Z,2026-10-29T14:17:51Z,3994,success,schedule
+40885026479,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-29T13:46:27Z,2026-10-29T13:46:49Z,22,success,schedule
+40900225385,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-29T15:18:31Z,2026-10-29T15:18:46Z,15,success,schedule
+40935809924,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T18:58:38Z,2026-10-29T20:05:06Z,3988,success,schedule
+40938886908,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-29T19:18:27Z,2026-10-29T19:18:48Z,21,success,schedule
+40941873829,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-29T19:38:11Z,2026-10-29T19:38:54Z,43,success,schedule
+40972428045,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-29T23:20:09Z,2026-10-30T00:25:48Z,3939,success,schedule
+40974535689,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-29T23:38:41Z,2026-10-29T23:39:04Z,23,success,schedule
+40976475740,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-29T23:56:39Z,2026-10-29T23:57:21Z,42,success,schedule
+40979259315,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-30T00:22:17Z,2026-10-30T00:22:42Z,25,success,schedule
+40983921365,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-30T01:07:24Z,2026-10-30T02:13:50Z,3986,success,schedule
+40984778620,ducktrader-options,Options Desk,Daily options signals,2026-10-30T01:15:48Z,2026-10-30T01:16:31Z,43,failure,schedule
+41010773388,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-30T05:51:49Z,2026-10-30T05:52:06Z,17,success,schedule
+41011162822,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-30T05:56:04Z,2026-10-30T07:02:26Z,3982,success,schedule
+41014626671,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-30T06:31:58Z,2026-10-30T06:32:24Z,26,success,schedule
+41059402670,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-30T12:58:19Z,2026-10-30T12:58:38Z,19,success,schedule
+41060139845,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-30T13:03:53Z,2026-10-30T14:10:10Z,3977,success,schedule
+41064998819,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-30T13:39:03Z,2026-10-30T13:41:15Z,132,success,schedule
+41077751030,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-30T15:07:18Z,2026-10-30T15:08:13Z,55,success,schedule
+41092628199,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-30T16:44:34Z,2026-10-30T16:44:48Z,14,success,schedule
+41108687992,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-30T18:38:52Z,2026-10-30T19:44:55Z,3963,success,schedule
+41110886059,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-30T18:54:41Z,2026-10-30T18:55:06Z,25,success,schedule
+41114685947,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-30T19:22:10Z,2026-10-30T19:22:51Z,41,success,schedule
+41141760637,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-30T23:00:29Z,2026-10-31T00:06:54Z,3985,success,schedule
+41143530368,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-30T23:17:07Z,2026-10-30T23:17:27Z,20,success,schedule
+41146367391,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-30T23:45:46Z,2026-10-30T23:46:22Z,36,success,schedule
+41148104372,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-31T00:04:13Z,2026-10-31T00:04:35Z,22,success,schedule
+41152463721,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-31T00:51:58Z,2026-10-31T01:57:56Z,3958,success,schedule
+41152898537,ducktrader-options,Options Desk,Daily options signals,2026-10-31T00:57:14Z,2026-10-31T00:57:28Z,14,success,schedule
+41156676499,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-10-31T01:42:59Z,2026-10-31T01:43:22Z,23,success,schedule
+41173829030,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-31T05:45:08Z,2026-10-31T05:45:29Z,21,success,schedule
+41174292891,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-31T05:52:21Z,2026-10-31T06:57:55Z,3934,success,schedule
+41176239059,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-31T06:21:06Z,2026-10-31T06:21:29Z,23,success,schedule
+41201803477,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-10-31T12:35:37Z,2026-10-31T12:36:01Z,24,success,schedule
+41202235170,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-31T12:41:37Z,2026-10-31T13:47:59Z,3982,success,schedule
+41204154068,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-31T13:07:39Z,2026-10-31T13:08:01Z,22,success,schedule
+41210930110,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-31T14:36:33Z,2026-10-31T14:37:18Z,45,success,schedule
+41216535385,ducktrader-horses,Five Horses,Five Horses alerts,2026-10-31T15:47:38Z,2026-10-31T15:47:50Z,12,success,schedule
+41226328816,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-31T17:48:45Z,2026-10-31T18:54:26Z,3941,success,schedule
+41227030063,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-31T17:57:38Z,2026-10-31T17:57:57Z,19,success,schedule
+41244759819,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-10-31T21:41:29Z,2026-10-31T22:47:26Z,3957,success,schedule
+41245784841,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-10-31T21:54:59Z,2026-10-31T21:55:19Z,20,success,schedule
+41277277650,ducktrader-options,Options Desk,Record a missed trade (one-off),2026-11-01T05:31:37Z,2026-11-01T05:31:47Z,10,success,workflow_dispatch
+41277303060,ducktrader-options,Options Desk,Record a missed trade (one-off),2026-11-01T05:32:02Z,2026-11-01T05:32:14Z,12,success,workflow_dispatch
+41278198072,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-11-01T05:46:12Z,2026-11-01T05:46:36Z,24,success,workflow_dispatch
+41285623687,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-11-01T07:38:52Z,2026-11-01T07:39:11Z,19,success,workflow_dispatch
+41298066038,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-01T10:34:12Z,2026-11-01T10:34:54Z,42,success,schedule
+41378619374,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-02T02:36:15Z,2026-11-02T02:36:53Z,38,success,workflow_dispatch
+41435898360,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-02T11:19:23Z,2026-11-02T11:19:48Z,25,success,schedule
+41540170353,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-02T22:47:15Z,2026-11-02T22:48:04Z,49,success,schedule
+41567402640,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-03T02:38:48Z,2026-11-03T02:39:08Z,20,success,schedule
+41569199798,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T02:56:50Z,2026-11-03T04:03:14Z,3984,success,schedule
+41569505981,ducktrader-options,Options Desk,Daily options signals,2026-11-03T03:00:03Z,2026-11-03T03:00:16Z,13,success,schedule
+41575096743,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-03T03:55:53Z,2026-11-03T03:56:13Z,20,success,schedule
+41592429280,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-03T06:50:30Z,2026-11-03T06:50:48Z,18,success,schedule
+41592922232,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T06:55:16Z,2026-11-03T08:01:39Z,3983,success,schedule
+41595385865,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-03T07:17:55Z,2026-11-03T07:18:24Z,29,success,schedule
+41623579854,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-03T10:57:46Z,2026-11-03T10:58:16Z,30,success,schedule
+41633739551,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T12:12:18Z,2026-11-03T13:17:55Z,3937,success,workflow_dispatch
+41633743379,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-03T12:12:19Z,2026-11-03T12:13:16Z,57,success,workflow_dispatch
+41633747304,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-03T12:12:21Z,2026-11-03T12:12:58Z,37,success,workflow_dispatch
+41633906389,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T12:13:29Z,2026-11-03T14:23:59Z,7830,success,workflow_dispatch
+41634678581,ducktrader-options,Options Desk,Probe Cboe stock fields (one-off),2026-11-03T12:19:04Z,2026-11-03T12:19:15Z,11,success,workflow_dispatch
+41634809840,ducktrader-options,Options Desk,Post a notice to the group,2026-11-03T12:20:00Z,2026-11-03T12:20:11Z,11,success,workflow_dispatch
+41656738302,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T14:44:55Z,2026-11-03T15:30:07Z,2712,success,workflow_dispatch
+41661193779,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-03T15:10:58Z,2026-11-03T15:11:37Z,39,success,schedule
+41664374881,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-03T15:29:14Z,2026-11-03T15:29:33Z,19,success,schedule
+41673230388,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-03T16:20:43Z,2026-11-03T16:20:58Z,15,success,schedule
+41674686448,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-03T16:29:16Z,2026-11-03T16:29:34Z,18,success,schedule
+41688877774,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-03T17:55:28Z,2026-11-03T17:56:01Z,33,success,schedule
+41689465380,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-03T17:59:21Z,2026-11-03T17:59:34Z,13,success,schedule
+41713090525,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-03T20:29:51Z,2026-11-03T20:30:14Z,23,success,schedule
+41718685592,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-03T21:06:08Z,2026-11-03T21:07:09Z,61,success,schedule
+41720361776,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-03T21:16:58Z,2026-11-03T21:17:27Z,29,success,schedule
+41750182724,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-04T00:53:35Z,2026-11-04T00:53:54Z,19,success,schedule
+41753335887,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-04T01:20:09Z,2026-11-04T01:20:45Z,36,success,schedule
+41754199768,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-04T01:27:37Z,2026-11-04T01:28:04Z,27,success,schedule
+41754920624,ducktrader-options,Options Desk,Daily options signals,2026-11-04T01:33:59Z,2026-11-04T01:34:09Z,10,success,schedule
+41785508837,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-04T06:26:13Z,2026-11-04T06:26:30Z,17,success,schedule
+41786459392,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-04T06:34:47Z,2026-11-04T06:35:12Z,25,success,schedule
+41789208268,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-04T07:00:00Z,2026-11-04T07:00:31Z,31,success,schedule
+41818199973,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-04T11:02:34Z,2026-11-04T11:03:03Z,29,success,schedule
+41821983346,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-04T11:34:19Z,2026-11-04T11:35:20Z,61,success,workflow_dispatch
+41821986591,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-04T11:34:20Z,2026-11-04T11:34:55Z,35,success,workflow_dispatch
+41821990020,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-04T11:34:22Z,2026-11-04T11:35:26Z,64,success,workflow_dispatch
+41857930686,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-04T15:27:26Z,2026-11-04T15:28:00Z,34,success,schedule
+41858248231,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-04T15:29:19Z,2026-11-04T15:29:51Z,32,success,schedule
+41861424151,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-04T15:47:39Z,2026-11-04T15:47:58Z,19,success,schedule
+41867042370,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-04T16:25:17Z,2026-11-04T16:33:25Z,488,success,schedule
+41868265156,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-04T16:32:27Z,2026-11-04T16:32:44Z,17,success,schedule
+41883688622,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-04T18:06:04Z,2026-11-04T18:06:16Z,12,success,schedule
+41884758377,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-04T18:12:07Z,2026-11-04T18:12:21Z,14,success,schedule
+41910326597,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-04T20:50:00Z,2026-11-04T20:50:22Z,22,success,schedule
+41920626589,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-04T21:55:50Z,2026-11-04T21:56:19Z,29,success,schedule
+41923614242,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-04T22:15:11Z,2026-11-04T22:15:34Z,23,success,schedule
+41945889644,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-05T01:03:54Z,2026-11-05T01:04:17Z,23,success,schedule
+41948648601,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-05T01:27:29Z,2026-11-05T01:28:06Z,37,success,schedule
+41948873228,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-05T01:29:34Z,2026-11-05T01:30:03Z,29,success,schedule
+41950128995,ducktrader-options,Options Desk,Daily options signals,2026-11-05T01:40:41Z,2026-11-05T01:40:54Z,13,success,schedule
+41983040346,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-05T06:49:49Z,2026-11-05T06:50:06Z,17,success,schedule
+41983721346,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-05T06:56:03Z,2026-11-05T06:56:33Z,30,success,schedule
+41987303487,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-05T07:26:59Z,2026-11-05T07:27:24Z,25,success,schedule
+42015690468,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-05T11:02:46Z,2026-11-05T11:03:15Z,29,success,schedule
+42020119491,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-05T11:34:54Z,2026-11-05T11:36:08Z,74,success,workflow_dispatch
+42020123249,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-05T11:34:55Z,2026-11-05T11:35:37Z,42,success,workflow_dispatch
+42020127212,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-05T11:34:57Z,2026-11-05T11:35:54Z,57,success,workflow_dispatch
+42055577456,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-05T15:30:00Z,2026-11-05T15:30:33Z,33,success,schedule
+42056133819,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-05T15:33:13Z,2026-11-05T15:33:49Z,36,success,schedule
+42058916761,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-05T15:49:41Z,2026-11-05T15:50:00Z,19,success,schedule
+42065761412,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-05T16:34:02Z,2026-11-05T16:34:13Z,11,success,schedule
+42067782757,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-05T16:45:50Z,2026-11-05T16:46:07Z,17,success,schedule
+42081295082,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-05T18:08:01Z,2026-11-05T18:08:13Z,12,success,schedule
+42082137893,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-05T18:13:23Z,2026-11-05T18:13:34Z,11,success,schedule
+42109388912,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-05T21:05:21Z,2026-11-05T21:05:39Z,18,success,schedule
+42118347702,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-05T22:04:48Z,2026-11-05T22:05:16Z,28,success,schedule
+42120976091,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-05T22:22:42Z,2026-11-05T22:23:04Z,22,success,schedule
+42141736111,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-06T01:08:00Z,2026-11-06T01:08:23Z,23,success,schedule
+42144514015,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-06T01:32:27Z,2026-11-06T01:33:00Z,33,success,schedule
+42144972096,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T01:36:35Z,2026-11-06T01:37:05Z,30,success,schedule
+42145657016,ducktrader-options,Options Desk,Daily options signals,2026-11-06T01:42:54Z,2026-11-06T01:43:05Z,11,success,schedule
+42177051260,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-06T06:51:02Z,2026-11-06T06:51:20Z,18,success,schedule
+42177535137,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T06:55:41Z,2026-11-06T06:56:13Z,32,success,schedule
+42180970570,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-06T07:27:14Z,2026-11-06T07:27:39Z,25,success,schedule
+42206915185,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-06T11:00:15Z,2026-11-06T11:00:42Z,27,success,schedule
+42211264780,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-06T11:34:30Z,2026-11-06T11:36:03Z,93,success,workflow_dispatch
+42211268358,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-06T11:34:31Z,2026-11-06T11:35:18Z,47,success,workflow_dispatch
+42211271714,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T11:34:33Z,2026-11-06T11:35:36Z,63,failure,workflow_dispatch
+42211666462,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T11:37:47Z,2026-11-06T11:38:41Z,54,failure,workflow_dispatch
+42231412162,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-06T14:09:30Z,2026-11-06T14:09:44Z,14,success,workflow_dispatch
+42239763521,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-06T15:05:23Z,2026-11-06T15:05:55Z,32,success,schedule
+42240153906,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T15:07:53Z,2026-11-06T15:08:57Z,64,success,schedule
+42242743973,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-06T15:24:24Z,2026-11-06T15:24:47Z,23,success,schedule
+42248269043,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-06T16:00:15Z,2026-11-06T16:00:29Z,14,success,schedule
+42250339086,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-06T16:13:26Z,2026-11-06T16:13:37Z,11,success,schedule
+42262978669,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-06T17:35:07Z,2026-11-06T17:35:18Z,11,success,schedule
+42263582052,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-06T17:39:10Z,2026-11-06T17:39:21Z,11,success,schedule
+42288406683,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-06T20:26:44Z,2026-11-06T20:27:06Z,22,success,schedule
+42292574551,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-06T20:56:39Z,2026-11-06T20:57:11Z,32,success,schedule
+42293887853,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-06T21:05:58Z,2026-11-06T21:06:19Z,21,success,schedule
+42317580820,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-07T00:20:06Z,2026-11-07T00:20:25Z,19,success,schedule
+42321222385,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-07T00:56:22Z,2026-11-07T00:56:54Z,32,success,schedule
+42321379078,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-07T00:58:04Z,2026-11-07T00:58:31Z,27,success,schedule
+42321919696,ducktrader-options,Options Desk,Daily options signals,2026-11-07T01:03:38Z,2026-11-07T01:03:48Z,10,success,schedule
+42327552673,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-11-07T02:06:37Z,2026-11-07T02:07:01Z,24,success,schedule
+42345070062,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-07T06:00:25Z,2026-11-07T06:00:40Z,15,success,schedule
+42345548282,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-07T06:06:49Z,2026-11-07T06:07:21Z,32,success,schedule
+42347944929,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-07T06:38:58Z,2026-11-07T06:39:23Z,25,success,schedule
+42363576321,ducktrader-yields,Yields Bot,Monthly yield curve post,2026-11-07T10:20:59Z,2026-11-07T10:21:24Z,25,success,schedule
+42375348759,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-07T13:05:24Z,2026-11-07T13:05:44Z,20,success,schedule
+42375874170,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-07T13:12:07Z,2026-11-07T13:13:05Z,58,success,schedule
+42377691033,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-07T13:35:48Z,2026-11-07T13:36:08Z,20,success,schedule
+42383990406,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-07T14:57:11Z,2026-11-07T14:58:04Z,53,success,schedule
+42384676967,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-07T15:05:35Z,2026-11-07T15:06:04Z,29,success,schedule
+42386116125,ducktrader-sectors,Sector Rotation,Weekly sector rotation,2026-11-07T15:23:01Z,2026-11-07T15:23:35Z,34,success,workflow_dispatch
+42391886070,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-07T16:33:25Z,2026-11-07T16:33:35Z,10,success,schedule
+42392110164,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-07T16:36:01Z,2026-11-07T16:36:12Z,11,success,schedule
+42399379410,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-07T18:03:53Z,2026-11-07T18:04:22Z,29,success,schedule
+42400602687,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T18:18:12Z,2026-11-07T18:19:07Z,55,success,workflow_dispatch
+42400846382,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-07T18:21:02Z,2026-11-07T18:21:24Z,22,success,schedule
+42400930307,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T18:22:03Z,2026-11-07T18:23:18Z,75,success,workflow_dispatch
+42401361427,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T18:27:13Z,2026-11-07T18:28:03Z,50,success,workflow_dispatch
+42403227102,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T18:49:58Z,2026-11-07T18:50:47Z,49,success,workflow_dispatch
+42404151040,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T19:01:24Z,2026-11-07T19:05:36Z,252,success,workflow_dispatch
+42405659340,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-07T19:19:41Z,2026-11-07T19:20:38Z,57,success,workflow_dispatch
+42418197672,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-07T21:56:07Z,2026-11-07T21:56:34Z,27,success,schedule
+42420247476,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-07T22:21:37Z,2026-11-07T22:22:03Z,26,success,schedule
+42458633669,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-08T07:23:58Z,2026-11-08T07:24:14Z,16,success,schedule
+42550984471,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-09T02:26:53Z,2026-11-09T02:27:07Z,14,success,workflow_dispatch
+42582776810,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-09T07:59:25Z,2026-11-09T07:59:36Z,11,success,schedule
+42720382143,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-09T23:25:50Z,2026-11-09T23:26:23Z,33,success,schedule
+42733463389,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-10T01:07:26Z,2026-11-10T01:07:45Z,19,success,workflow_dispatch
+42746001493,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-10T02:55:15Z,2026-11-10T02:55:42Z,27,success,schedule
+42750660744,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-10T03:37:33Z,2026-11-10T03:38:15Z,42,success,schedule
+42751251738,ducktrader-options,Options Desk,Daily options signals,2026-11-10T03:43:16Z,2026-11-10T03:43:26Z,10,success,schedule
+42774725275,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-10T07:21:31Z,2026-11-10T07:21:48Z,17,success,schedule
+42775345972,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-10T07:26:50Z,2026-11-10T07:27:21Z,31,success,schedule
+42777793771,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-10T07:47:47Z,2026-11-10T07:48:12Z,25,success,schedule
+42782733491,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-10T08:27:05Z,2026-11-10T08:30:04Z,179,success,schedule
+42808618468,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-10T11:34:46Z,2026-11-10T11:35:47Z,61,success,workflow_dispatch
+42808622403,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-10T11:34:48Z,2026-11-10T11:47:06Z,738,success,workflow_dispatch
+42808625923,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-10T11:34:49Z,2026-11-10T11:35:50Z,61,success,workflow_dispatch
+42812645099,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-10T12:04:25Z,2026-11-10T12:05:47Z,82,success,workflow_dispatch
+42813908386,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-10T12:13:26Z,2026-11-10T12:13:55Z,29,success,workflow_dispatch
+42814297889,ducktrader-ig-bot,IG Manager,Full history backfill,2026-11-10T12:16:09Z,2026-11-10T12:19:31Z,202,success,workflow_dispatch
+42816822974,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:33:51Z,2026-11-10T12:34:07Z,16,success,push
+42817441933,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:38:12Z,2026-11-10T12:38:22Z,10,failure,workflow_dispatch
+42817568534,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:39:06Z,2026-11-10T12:39:19Z,13,success,workflow_dispatch
+42817871811,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:41:15Z,2026-11-10T12:42:37Z,82,success,workflow_dispatch
+42819051874,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:49:35Z,2026-11-10T12:50:00Z,25,success,push
+42819356181,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T12:51:44Z,2026-11-10T12:52:08Z,24,success,push
+42820474275,ducktrader-ig-bot,IG Manager,Narrate Reel,2026-11-10T12:59:41Z,2026-11-10T13:13:44Z,843,failure,workflow_dispatch
+42822694367,ducktrader-ig-bot,IG Manager,Narrate Reel,2026-11-10T13:14:22Z,2026-11-10T13:56:19Z,2517,success,workflow_dispatch
+42833217517,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T14:21:16Z,2026-11-10T14:21:35Z,19,success,push
+42839329435,ducktrader-ig-bot,IG Manager,Narrate Reel,2026-11-10T14:57:13Z,2026-11-10T16:16:49Z,4776,success,workflow_dispatch
+42839573226,ducktrader-drama-bot,Drama Studio,Narrate episode,2026-11-10T14:58:39Z,2026-11-10T15:56:13Z,3454,success,push
+42854474265,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-10T16:26:01Z,2026-11-10T16:26:39Z,38,success,schedule
+42854680735,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-10T16:27:18Z,2026-11-10T16:27:48Z,30,success,schedule
+42854894802,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-10T16:28:35Z,2026-11-10T16:28:48Z,13,success,schedule
+42856092811,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-10T16:35:44Z,2026-11-10T16:35:56Z,12,success,schedule
+42856352480,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-10T16:37:16Z,2026-11-10T16:37:34Z,18,success,schedule
+42856902730,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T16:40:26Z,2026-11-10T16:40:41Z,15,success,push
+42857701818,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T16:45:01Z,2026-11-10T16:45:20Z,19,success,push
+42860537296,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T17:01:07Z,2026-11-10T17:01:39Z,32,success,push
+42861376147,ducktrader-drama-bot,Drama Studio,Narrate episode,2026-11-10T17:05:54Z,2026-11-10T18:21:58Z,4564,success,push
+42861778721,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T17:08:15Z,2026-11-10T17:08:46Z,31,success,workflow_dispatch
+42862278722,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T17:11:04Z,2026-11-10T17:11:29Z,25,success,workflow_dispatch
+42863672202,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T17:18:57Z,2026-11-10T17:19:12Z,15,success,push
+42865285411,ducktrader-breadth,Breadth Desk,Rebuild long S5TH history (one-off),2026-11-10T17:28:20Z,2026-11-10T17:33:35Z,315,success,workflow_dispatch
+42870499459,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-10T17:59:14Z,2026-11-10T17:59:26Z,12,success,schedule
+42872111567,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-10T18:08:23Z,2026-11-10T18:08:36Z,13,success,schedule
+42881819015,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-10T19:05:50Z,2026-11-10T19:06:08Z,18,success,push
+42899025821,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-10T20:49:28Z,2026-11-10T20:49:47Z,19,success,schedule
+42908522587,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-10T21:48:02Z,2026-11-10T21:48:37Z,35,success,schedule
+42910200579,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-10T21:58:51Z,2026-11-10T21:59:14Z,23,success,schedule
+42914260249,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-10T22:24:25Z,2026-11-10T22:24:49Z,24,success,schedule
+42934899184,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-11T00:53:44Z,2026-11-11T00:54:06Z,22,success,schedule
+42937427889,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-11T01:14:04Z,2026-11-11T01:15:24Z,80,success,schedule
+42937892449,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-11T01:17:43Z,2026-11-11T01:18:13Z,30,success,schedule
+42938501691,ducktrader-options,Options Desk,Daily options signals,2026-11-11T01:22:35Z,2026-11-11T01:22:46Z,11,success,schedule
+42941777634,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-11T01:50:07Z,2026-11-11T01:51:11Z,64,success,schedule
+42972480076,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-11T06:26:49Z,2026-11-11T06:27:08Z,19,success,schedule
+42973628378,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-11T06:36:32Z,2026-11-11T06:37:01Z,29,success,schedule
+42978043798,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-11T07:14:30Z,2026-11-11T07:14:57Z,27,success,schedule
+42981823879,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-11T07:45:28Z,2026-11-11T07:45:38Z,10,success,schedule
+43013172293,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-11T11:35:15Z,2026-11-11T11:36:07Z,52,success,workflow_dispatch
+43013175819,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-11T11:35:16Z,2026-11-11T11:35:55Z,39,success,workflow_dispatch
+43013179121,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-11T11:35:18Z,2026-11-11T11:36:19Z,61,success,workflow_dispatch
+43037913754,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-11T14:22:55Z,2026-11-11T14:25:41Z,166,success,workflow_dispatch
+43046452602,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-11T15:15:00Z,2026-11-11T15:15:38Z,38,success,schedule
+43047206534,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-11T15:19:28Z,2026-11-11T15:19:57Z,29,success,schedule
+43050411822,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-11T15:38:40Z,2026-11-11T15:39:08Z,28,success,schedule
+43057341818,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-11T16:20:26Z,2026-11-11T16:20:38Z,12,success,schedule
+43059454084,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-11T16:33:13Z,2026-11-11T16:33:26Z,13,success,schedule
+43072066294,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-11T17:50:49Z,2026-11-11T17:51:05Z,16,success,schedule
+43073010853,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-11T17:56:49Z,2026-11-11T17:57:01Z,12,success,schedule
+43073615879,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-11T18:00:39Z,2026-11-11T18:00:51Z,12,success,schedule
+43102912476,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-11T21:25:25Z,2026-11-11T21:26:02Z,37,success,schedule
+43110702771,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-11T22:18:51Z,2026-11-11T22:19:13Z,22,success,schedule
+43113894488,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-11T22:41:43Z,2026-11-11T22:42:14Z,31,success,schedule
+43114294641,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-11T22:44:39Z,2026-11-11T22:45:11Z,32,success,schedule
+43129519517,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-12T00:44:42Z,2026-11-12T00:44:55Z,13,success,workflow_dispatch
+43138300417,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-12T02:00:01Z,2026-11-12T02:00:27Z,26,success,schedule
+43140414047,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-12T02:17:55Z,2026-11-12T02:18:29Z,34,success,schedule
+43141120451,ducktrader-options,Options Desk,Daily options signals,2026-11-12T02:23:56Z,2026-11-12T02:24:09Z,13,success,schedule
+43144112905,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T02:50:12Z,2026-11-12T02:50:26Z,14,success,schedule
+43145031178,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-12T02:58:37Z,2026-11-12T02:58:55Z,18,success,schedule
+43152313256,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T04:04:01Z,2026-11-12T04:04:13Z,12,success,schedule
+43173770556,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-12T07:14:17Z,2026-11-12T07:14:38Z,21,success,schedule
+43174479466,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-12T07:20:03Z,2026-11-12T07:20:26Z,23,success,schedule
+43177761198,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-12T07:46:40Z,2026-11-12T07:47:14Z,34,success,schedule
+43180809167,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T08:10:38Z,2026-11-12T08:10:51Z,13,success,schedule
+43182387922,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-12T08:22:22Z,2026-11-12T08:22:35Z,13,success,schedule
+43210305710,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-12T11:34:24Z,2026-11-12T11:35:02Z,38,success,workflow_dispatch
+43210309462,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-12T11:34:25Z,2026-11-12T11:35:00Z,35,success,workflow_dispatch
+43210312721,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-12T11:34:27Z,2026-11-12T11:35:23Z,56,success,workflow_dispatch
+43253899485,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-12T16:00:20Z,2026-11-12T16:00:59Z,39,success,schedule
+43257910251,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-12T16:22:17Z,2026-11-12T16:23:00Z,43,success,schedule
+43263160115,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-12T16:51:14Z,2026-11-12T16:51:46Z,32,success,schedule
+43263680277,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-12T16:54:09Z,2026-11-12T16:54:20Z,11,success,schedule
+43265020526,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T17:01:40Z,2026-11-12T17:05:04Z,204,success,workflow_dispatch
+43265146656,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-12T17:02:22Z,2026-11-12T17:02:35Z,13,success,schedule
+43277139574,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T18:10:55Z,2026-11-12T18:11:11Z,16,success,schedule
+43280028166,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-12T18:27:31Z,2026-11-12T18:27:45Z,14,success,schedule
+43280933767,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-12T18:32:44Z,2026-11-12T18:32:55Z,11,success,schedule
+43286617555,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T19:05:49Z,2026-11-12T19:06:11Z,22,success,schedule
+43303388584,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-12T20:45:04Z,2026-11-12T20:45:18Z,14,success,schedule
+43310508902,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-12T21:27:56Z,2026-11-12T21:28:42Z,46,success,schedule
+43318015225,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-12T22:14:11Z,2026-11-12T22:14:45Z,34,success,schedule
+43320063121,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-12T22:27:25Z,2026-11-12T22:27:53Z,28,success,schedule
+43322739128,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-12T22:44:54Z,2026-11-12T22:45:22Z,28,success,schedule
+43345154469,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-13T01:28:15Z,2026-11-13T01:28:42Z,27,success,schedule
+43348348520,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-13T01:54:47Z,2026-11-13T01:55:12Z,25,success,schedule
+43349170697,ducktrader-options,Options Desk,Daily options signals,2026-11-13T02:01:42Z,2026-11-13T02:01:55Z,13,success,schedule
+43352817832,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T02:31:56Z,2026-11-13T02:32:09Z,13,success,schedule
+43353502837,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-13T02:37:49Z,2026-11-13T02:38:08Z,19,success,schedule
+43359551387,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T03:31:38Z,2026-11-13T03:31:51Z,13,success,schedule
+43381282206,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-13T06:48:40Z,2026-11-13T06:48:56Z,16,success,schedule
+43381742628,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-13T06:52:40Z,2026-11-13T06:53:11Z,31,success,schedule
+43385420008,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-13T07:23:30Z,2026-11-13T07:23:52Z,22,success,schedule
+43388116994,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T07:46:11Z,2026-11-13T07:46:25Z,14,success,schedule
+43389967067,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-13T08:01:21Z,2026-11-13T08:01:35Z,14,success,schedule
+43407131186,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T10:10:36Z,2026-11-13T10:13:14Z,158,success,workflow_dispatch
+43418191792,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-13T11:34:46Z,2026-11-13T11:35:51Z,65,success,workflow_dispatch
+43418195139,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-13T11:34:48Z,2026-11-13T11:35:22Z,34,success,workflow_dispatch
+43418198619,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-13T11:34:50Z,2026-11-13T11:35:54Z,64,success,workflow_dispatch
+43452320209,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-13T15:24:35Z,2026-11-13T15:25:12Z,37,success,schedule
+43452735089,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-13T15:27:07Z,2026-11-13T15:27:40Z,33,success,schedule
+43455370160,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-13T15:42:54Z,2026-11-13T15:43:10Z,16,success,schedule
+43463902663,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-13T16:33:29Z,2026-11-13T16:33:41Z,12,success,schedule
+43465457806,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-13T16:42:45Z,2026-11-13T16:42:58Z,13,success,schedule
+43474899199,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T17:39:10Z,2026-11-13T17:39:22Z,12,success,schedule
+43477448372,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-13T17:54:44Z,2026-11-13T17:54:58Z,14,success,schedule
+43478172683,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-13T17:59:22Z,2026-11-13T17:59:38Z,16,success,schedule
+43485227677,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T18:42:28Z,2026-11-13T18:42:40Z,12,success,schedule
+43501578322,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T20:26:29Z,2026-11-13T20:26:41Z,12,success,schedule
+43505736749,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-13T20:53:49Z,2026-11-13T20:54:09Z,20,success,schedule
+43512774472,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-13T21:40:26Z,2026-11-13T21:40:44Z,18,success,schedule
+43515445120,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-13T21:59:16Z,2026-11-13T21:59:48Z,32,success,schedule
+43515543850,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-13T22:00:00Z,2026-11-13T22:00:36Z,36,success,schedule
+43517353052,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-13T22:12:28Z,2026-11-13T22:12:41Z,13,success,workflow_dispatch
+43538035960,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-14T01:02:01Z,2026-11-14T01:02:27Z,26,success,schedule
+43540645815,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-14T01:26:55Z,2026-11-14T01:27:28Z,33,success,schedule
+43540813034,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-14T01:28:40Z,2026-11-14T01:29:19Z,39,success,schedule
+43541562970,ducktrader-options,Options Desk,Daily options signals,2026-11-14T01:36:09Z,2026-11-14T01:36:21Z,12,success,schedule
+43545162113,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T02:14:22Z,2026-11-14T02:14:40Z,18,success,schedule
+43546945041,ducktrader-options,Options Desk,Weekly P&L scorecard,2026-11-14T02:33:12Z,2026-11-14T02:33:35Z,23,success,schedule
+43551879946,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T03:29:19Z,2026-11-14T03:29:37Z,18,success,schedule
+43566376698,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-14T06:26:53Z,2026-11-14T06:27:13Z,20,success,schedule
+43567093313,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-14T06:35:32Z,2026-11-14T06:36:06Z,34,success,schedule
+43569391202,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-14T07:05:02Z,2026-11-14T07:05:39Z,37,success,schedule
+43571503789,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T07:31:36Z,2026-11-14T07:31:54Z,18,success,schedule
+43572004087,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-14T07:37:58Z,2026-11-14T07:38:12Z,14,success,schedule
+43583884370,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T10:09:01Z,2026-11-14T10:12:59Z,238,success,workflow_dispatch
+43603470246,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-14T14:10:27Z,2026-11-14T14:10:55Z,28,success,schedule
+43603764458,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-14T14:13:45Z,2026-11-14T14:14:43Z,58,success,schedule
+43605468020,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-14T14:33:19Z,2026-11-14T14:33:41Z,22,success,schedule
+43608912867,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-14T15:12:21Z,2026-11-14T15:13:09Z,48,success,schedule
+43609513697,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-14T15:19:00Z,2026-11-14T15:19:45Z,45,success,schedule
+43612160581,ducktrader-sectors,Sector Rotation,Weekly sector rotation,2026-11-14T15:48:33Z,2026-11-14T15:49:03Z,30,success,schedule
+43616208301,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T16:33:00Z,2026-11-14T16:33:16Z,16,success,schedule
+43616786773,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-14T16:39:22Z,2026-11-14T16:39:33Z,11,success,schedule
+43616990347,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-14T16:41:37Z,2026-11-14T16:41:49Z,12,success,schedule
+43619750372,ducktrader-sectors,Sector Rotation,Weekly sector rotation,2026-11-14T17:11:28Z,2026-11-14T17:11:54Z,26,success,schedule
+43620264412,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T17:17:13Z,2026-11-14T17:17:25Z,12,success,schedule
+43628155770,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T18:43:08Z,2026-11-14T18:43:20Z,12,success,schedule
+43630984963,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-14T19:14:17Z,2026-11-14T19:14:48Z,31,success,schedule
+43632435550,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-14T19:30:17Z,2026-11-14T19:30:35Z,18,success,schedule
+43638968012,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-14T20:43:06Z,2026-11-14T20:43:43Z,37,success,schedule
+43646526184,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-14T22:08:49Z,2026-11-14T22:09:09Z,20,success,workflow_dispatch
+43651330542,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-14T23:04:05Z,2026-11-14T23:04:36Z,31,success,schedule
+43653156724,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-14T23:25:18Z,2026-11-14T23:25:38Z,20,success,schedule
+43664515770,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T01:44:44Z,2026-11-15T01:44:58Z,14,success,schedule
+43670278347,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T02:59:30Z,2026-11-15T02:59:45Z,15,success,schedule
+43682215578,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T05:42:18Z,2026-11-15T05:42:46Z,28,success,push
+43691323672,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T07:45:04Z,2026-11-15T07:45:22Z,18,success,schedule
+43691919767,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-15T07:53:00Z,2026-11-15T07:53:14Z,14,success,schedule
+43701398512,ducktrader-ig-bot,IG Manager,Refresh IG token,2026-11-15T09:53:20Z,2026-11-15T09:53:29Z,9,success,schedule
+43702647165,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T10:08:52Z,2026-11-15T10:12:51Z,239,success,workflow_dispatch
+43738497558,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T16:59:04Z,2026-11-15T16:59:26Z,22,success,schedule
+43743967299,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T17:57:12Z,2026-11-15T17:57:27Z,15,success,schedule
+43744021108,ducktrader-ig-bot,IG Manager,IG weekly scorecard,2026-11-15T17:57:49Z,2026-11-15T17:58:02Z,13,success,schedule
+43751812326,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T19:19:54Z,2026-11-15T19:20:10Z,16,success,schedule
+43761364220,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-15T21:02:02Z,2026-11-15T21:02:44Z,42,success,schedule
+43767684551,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-15T22:09:26Z,2026-11-15T22:09:40Z,14,success,workflow_dispatch
+43786084281,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T01:24:26Z,2026-11-16T01:24:38Z,12,success,push
+43787157709,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T01:35:34Z,2026-11-16T01:35:48Z,14,success,push
+43787162326,ducktrader-ig-bot,IG Manager,Narrate Reel,2026-11-16T01:35:37Z,2026-11-16T02:18:54Z,2597,success,workflow_dispatch
+43788590876,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T01:50:27Z,2026-11-16T01:50:41Z,14,success,schedule
+43789450113,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T01:59:41Z,2026-11-16T01:59:52Z,11,success,push
+43794853315,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T02:53:29Z,2026-11-16T02:53:44Z,15,success,push
+43795311104,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T02:58:18Z,2026-11-16T02:58:33Z,15,success,schedule
+43810184217,sg-transit-planner,MRT Planner,Rebuild station list,2026-11-16T05:25:56Z,2026-11-16T05:26:06Z,10,success,push
+43811083229,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-16T05:34:10Z,2026-11-16T05:34:48Z,38,success,dynamic
+43813750860,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-16T05:59:23Z,2026-11-16T05:59:38Z,15,success,workflow_dispatch
+43814303454,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-16T06:04:24Z,2026-11-16T06:05:08Z,44,success,dynamic
+43814348498,sg-transit-planner,MRT Planner,Data bot,2026-11-16T06:04:52Z,2026-11-16T06:30:58Z,1566,success,workflow_dispatch
+43817273081,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-16T06:30:57Z,2026-11-16T06:31:32Z,35,success,dynamic
+43817497855,sg-transit-planner,MRT Planner,Data bot,2026-11-16T06:32:58Z,2026-11-16T06:33:22Z,24,success,workflow_dispatch
+43817622475,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-16T06:34:04Z,2026-11-16T06:34:41Z,37,success,dynamic
+43817711726,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-16T06:34:50Z,2026-11-16T06:35:25Z,35,success,dynamic
+43826743797,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T07:51:24Z,2026-11-16T07:51:50Z,26,success,schedule
+43827848199,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-16T08:00:29Z,2026-11-16T08:00:47Z,18,success,schedule
+43846377933,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T10:10:07Z,2026-11-16T10:10:22Z,15,success,workflow_dispatch
+43888929587,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-16T14:44:34Z,2026-11-16T14:44:50Z,16,success,workflow_dispatch
+43948699196,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T20:20:08Z,2026-11-16T20:20:24Z,16,success,schedule
+43957751354,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T21:12:50Z,2026-11-16T21:13:03Z,13,success,schedule
+43967259849,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T22:09:26Z,2026-11-16T22:10:53Z,87,success,workflow_dispatch
+43973811040,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-16T22:50:15Z,2026-11-16T22:50:28Z,13,success,schedule
+43978839559,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-16T23:23:17Z,2026-11-16T23:23:48Z,31,success,schedule
+43986033133,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-17T00:14:37Z,2026-11-17T00:15:24Z,47,success,schedule
+43995839021,ducktrader-breadth,Breadth Desk,Save full price history (one-off),2026-11-17T01:28:24Z,2026-11-17T01:28:39Z,15,success,workflow_dispatch
+44008215320,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-17T03:09:52Z,2026-11-17T03:10:14Z,22,success,schedule
+44013859020,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-17T03:58:10Z,2026-11-17T03:59:10Z,60,success,schedule
+44014731812,ducktrader-options,Options Desk,Daily options signals,2026-11-17T04:05:37Z,2026-11-17T04:05:52Z,15,success,schedule
+44017105233,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T04:25:40Z,2026-11-17T04:25:56Z,16,success,schedule
+44017532597,sg-transit-planner,MRT Planner,Data bot,2026-11-17T04:29:29Z,2026-11-17T04:29:39Z,10,success,schedule
+44017548428,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T04:29:38Z,2026-11-17T04:30:22Z,44,success,dynamic
+44022457597,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T05:12:33Z,2026-11-17T05:12:46Z,13,success,schedule
+44042634444,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-17T07:56:57Z,2026-11-17T07:57:21Z,24,success,schedule
+44043249239,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-17T08:01:36Z,2026-11-17T08:02:06Z,30,success,schedule
+44047698048,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-17T08:33:06Z,2026-11-17T08:33:24Z,18,success,schedule
+44051529697,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T09:00:04Z,2026-11-17T09:00:22Z,18,success,schedule
+44053791816,ducktrader-fpl,FPL Scout,FPL transfer plan,2026-11-17T09:14:45Z,2026-11-17T09:14:58Z,13,success,schedule
+44062248480,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T10:09:54Z,2026-11-17T10:13:49Z,235,success,workflow_dispatch
+44073095280,sg-transit-planner,MRT Planner,Data bot,2026-11-17T11:20:15Z,2026-11-17T11:20:43Z,28,success,workflow_dispatch
+44073163637,sg-transit-planner,MRT Planner,Data bot,2026-11-17T11:20:41Z,2026-11-17T11:21:04Z,23,success,workflow_dispatch
+44073215976,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:21:01Z,2026-11-17T11:21:43Z,42,success,dynamic
+44073448382,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:22:33Z,2026-11-17T11:23:11Z,38,success,dynamic
+44074768348,sg-transit-planner,MRT Planner,Data bot,2026-11-17T11:31:24Z,2026-11-17T11:31:47Z,23,success,workflow_dispatch
+44074825650,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:31:47Z,2026-11-17T11:32:29Z,42,success,dynamic
+44075269263,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-17T11:34:39Z,2026-11-17T11:35:33Z,54,success,workflow_dispatch
+44075273179,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-17T11:34:41Z,2026-11-17T11:35:29Z,48,success,workflow_dispatch
+44076583731,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:43:33Z,2026-11-17T11:44:12Z,39,success,dynamic
+44076584412,sg-transit-planner,MRT Planner,Data bot,2026-11-17T11:43:34Z,2026-11-17T11:44:50Z,76,success,workflow_dispatch
+44076767914,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:44:47Z,2026-11-17T11:45:40Z,53,success,dynamic
+44078940834,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T11:59:26Z,2026-11-17T12:00:12Z,46,success,dynamic
+44082275311,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T12:20:52Z,2026-11-17T12:21:41Z,49,success,dynamic
+44083555198,sg-transit-planner,MRT Planner,Data bot,2026-11-17T12:29:06Z,2026-11-17T12:30:07Z,61,success,workflow_dispatch
+44083706034,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T12:30:06Z,2026-11-17T12:30:50Z,44,success,dynamic
+44088434967,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:00:21Z,2026-11-17T13:01:05Z,44,success,dynamic
+44088906123,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:03:15Z,2026-11-17T13:03:59Z,44,success,dynamic
+44088906559,sg-transit-planner,MRT Planner,Data bot,2026-11-17T13:03:15Z,2026-11-17T13:04:37Z,82,success,workflow_dispatch
+44089123754,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:04:36Z,2026-11-17T13:05:24Z,48,success,dynamic
+44094671745,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:37:58Z,2026-11-17T13:38:43Z,45,success,dynamic
+44094672176,sg-transit-planner,MRT Planner,Data bot,2026-11-17T13:37:59Z,2026-11-17T13:39:18Z,79,success,workflow_dispatch
+44094964938,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:39:47Z,2026-11-17T13:45:46Z,359,success,dynamic
+44096067008,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T13:46:19Z,2026-11-17T13:47:09Z,50,success,dynamic
+44098392412,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T14:00:11Z,2026-11-17T14:01:02Z,51,success,dynamic
+44100017769,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T14:09:23Z,2026-11-17T14:10:15Z,52,success,dynamic
+44104770741,ducktrader-cea-champions,CEA Champions,Build CEA champion list,2026-11-17T14:35:24Z,2026-11-17T14:37:24Z,120,success,push
+44105781947,ducktrader-cea-champions,CEA Champions,Build CEA champion list,2026-11-17T14:40:59Z,2026-11-17T14:42:37Z,98,success,push
+44109543697,ducktrader-cea-champions,CEA Champions,Build CEA champion list,2026-11-17T15:01:22Z,2026-11-17T15:03:15Z,113,success,push
+44116216333,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T15:36:10Z,2026-11-17T15:36:55Z,45,success,dynamic
+44116229136,sg-transit-planner,MRT Planner,Data bot,2026-11-17T15:36:13Z,2026-11-17T15:37:31Z,78,success,workflow_dispatch
+44116462064,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T15:37:28Z,2026-11-17T15:38:12Z,44,success,dynamic
+44116549647,sg-transit-planner,MRT Planner,Crowd snapshots,2026-11-17T15:37:58Z,2026-11-17T15:38:35Z,37,success,workflow_dispatch
+44116661945,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T15:38:33Z,2026-11-17T15:39:19Z,46,success,dynamic
+44123027998,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T16:12:08Z,2026-11-17T16:12:52Z,44,success,dynamic
+44123027451,sg-transit-planner,MRT Planner,Data bot,2026-11-17T16:12:08Z,2026-11-17T16:21:00Z,532,success,workflow_dispatch
+44124729387,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T16:20:57Z,2026-11-17T16:21:44Z,47,success,dynamic
+44124879764,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T16:21:44Z,2026-11-17T16:22:30Z,46,success,dynamic
+44124880444,sg-transit-planner,MRT Planner,Data bot,2026-11-17T16:21:44Z,2026-11-17T16:23:00Z,76,success,workflow_dispatch
+44125186585,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T16:23:21Z,2026-11-17T16:24:02Z,41,success,dynamic
+44125185949,sg-transit-planner,MRT Planner,Data bot,2026-11-17T16:23:21Z,2026-11-17T16:24:46Z,85,success,workflow_dispatch
+44125587039,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-17T16:25:25Z,2026-11-17T16:26:12Z,47,success,dynamic
+44139192471,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-17T17:38:22Z,2026-11-17T17:38:57Z,35,success,schedule
+44139369280,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-17T17:39:22Z,2026-11-17T17:39:46Z,24,success,schedule
+44139664583,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-17T17:41:01Z,2026-11-17T17:41:13Z,12,success,schedule
+44141434737,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-17T17:50:49Z,2026-11-17T17:51:03Z,14,success,schedule
+44142233874,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-17T17:55:16Z,2026-11-17T17:55:39Z,23,success,schedule
+44154938113,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T19:06:09Z,2026-11-17T19:06:23Z,14,success,schedule
+44156455156,ducktrader-horses,Five Horses,Five Horses alerts,2026-11-17T19:14:33Z,2026-11-17T19:14:46Z,13,success,schedule
+44157131908,ducktrader-hne,HNE 天地双剑,HNE watch signals,2026-11-17T19:18:19Z,2026-11-17T19:18:30Z,11,success,schedule
+44164453137,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T19:59:18Z,2026-11-17T19:59:34Z,16,success,schedule
+44182355788,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T21:41:00Z,2026-11-17T21:41:15Z,15,success,schedule
+44187226850,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-17T22:09:34Z,2026-11-17T22:10:38Z,64,success,workflow_dispatch
+44189613312,ducktrader-alerts,Setup Scanner,Mag 7 pattern scan,2026-11-17T22:23:40Z,2026-11-17T22:24:17Z,37,success,schedule
+44199905736,ducktrader-ig-bot,IG Manager,Daily IG insights,2026-11-17T23:30:08Z,2026-11-17T23:30:55Z,47,success,schedule
+44212287243,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-18T00:59:31Z,2026-11-18T00:59:58Z,27,success,schedule
+44215171464,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-18T01:21:25Z,2026-11-18T01:21:47Z,22,success,schedule
+44222601775,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T02:21:07Z,2026-11-18T02:21:22Z,15,success,push
+44224419063,ducktrader-breadth,Breadth Desk,S&P 500 breadth alerts,2026-11-18T02:35:45Z,2026-11-18T02:36:04Z,19,success,schedule
+44224811083,ducktrader-ig-bot,IG Manager,IG post queue,2026-11-18T02:39:02Z,2026-11-18T02:39:16Z,14,success,push
+44226771016,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T02:55:42Z,2026-11-18T02:56:24Z,42,success,dynamic
+44226771209,sg-transit-planner,MRT Planner,Data bot,2026-11-18T02:55:42Z,2026-11-18T02:57:30Z,108,success,workflow_dispatch
+44226863004,ducktrader-200ema,200 EMA Watch,S&P 500 under the 200 EMA,2026-11-18T02:56:30Z,2026-11-18T02:57:28Z,58,success,schedule
+44226972387,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T02:57:28Z,2026-11-18T02:58:18Z,50,success,dynamic
+44227149746,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T02:59:03Z,2026-11-18T02:59:54Z,51,success,dynamic
+44227521853,sg-transit-planner,MRT Planner,pages build and deployment,2026-11-18T03:02:08Z,2026-11-18T03:03:32Z,84,success,dynamic
+44227650213,ducktrader-options,Options Desk,Daily options signals,2026-11-18T03:03:14Z,2026-11-18T03:03:27Z,13,success,schedule

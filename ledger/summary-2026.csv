@@ -1,0 +1,14 @@
+rank,bot,repo,hours,runs,success_pct,share_pct
+1,200 EMA Watch,ducktrader-200ema,26.78,77,97,68.63
+2,IG Manager,ducktrader-ig-bot,3.86,88,98,9.9
+3,Breadth Desk,ducktrader-breadth,2.56,82,99,6.56
+4,Drama Studio,ducktrader-drama-bot,2.23,2,100,5.71
+5,MRT Planner,sg-transit-planner,1.32,51,100,3.39
+6,Setup Scanner,ducktrader-alerts,0.75,74,100,1.93
+7,Five Horses,ducktrader-horses,0.52,41,95,1.32
+8,HNE 天地双剑,ducktrader-hne,0.4,32,100,1.02
+9,FPL Scout,ducktrader-fpl,0.23,16,100,0.6
+10,Options Desk,ducktrader-options,0.15,32,97,0.39
+11,Yields Bot,ducktrader-yields,0.1,11,73,0.26
+12,CEA Champions,ducktrader-cea-champions,0.09,3,100,0.24
+13,Sector Rotation,ducktrader-sectors,0.03,3,100,0.06
