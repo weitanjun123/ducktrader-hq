@@ -31,6 +31,14 @@
       "name": "HDB New Towns: Punggol & Sengkang vs Tengah",
       "icon": "🏘️",
       "description": "BTO start → resale prices, do new towns move together? Plus the 3-room vs 5-room profit myth"
+    },
+    {
+      "repo": "sg-transit-planner",
+      "path": "gcb.html",
+      "id": "gcb-sales",
+      "name": "Good Class Bungalow Sales",
+      "icon": "🏡",
+      "description": "Singapore GCB transactions from URA data, mapped by GCB area"
     }
   ]
 }
