@@ -1,135 +1,135 @@
 {
  "year": 2026,
- "updated_at": "2026-11-18T04:55:22.010Z",
- "total_hours": 39.6,
- "total_runs": 534,
+ "updated_at": "2026-11-22T21:44:40.593Z",
+ "total_hours": 145.64,
+ "total_runs": 743,
  "note": "share_pct = this bot's hours / all bots' hours. Use it as each bot's slice of the year-end bonus pool.",
  "bots": [
   {
    "rank": 1,
-   "repo": "ducktrader-200ema",
-   "bot": "200 EMA Watch",
-   "hours": 26.78,
-   "runs": 77,
-   "success_pct": 97,
-   "share_pct": 67.63
+   "repo": "ducktrader-flight-bot",
+   "bot": "Flight Scout",
+   "hours": 102.18,
+   "runs": 40,
+   "success_pct": 98,
+   "share_pct": 70.16
   },
   {
    "rank": 2,
-   "repo": "ducktrader-ig-bot",
-   "bot": "IG Manager",
-   "hours": 3.87,
-   "runs": 90,
+   "repo": "ducktrader-200ema",
+   "bot": "200 EMA Watch",
+   "hours": 26.94,
+   "runs": 92,
    "success_pct": 98,
-   "share_pct": 9.78
+   "share_pct": 18.5
   },
   {
    "rank": 3,
-   "repo": "ducktrader-breadth",
-   "bot": "Breadth Desk",
-   "hours": 2.56,
-   "runs": 82,
+   "repo": "ducktrader-ig-bot",
+   "bot": "IG Manager",
+   "hours": 6.78,
+   "runs": 140,
    "success_pct": 99,
-   "share_pct": 6.46
+   "share_pct": 4.66
   },
   {
    "rank": 4,
+   "repo": "ducktrader-breadth",
+   "bot": "Breadth Desk",
+   "hours": 2.67,
+   "runs": 101,
+   "success_pct": 99,
+   "share_pct": 1.83
+  },
+  {
+   "rank": 5,
    "repo": "ducktrader-drama-bot",
    "bot": "Drama Studio",
    "hours": 2.23,
    "runs": 2,
    "success_pct": 100,
-   "share_pct": 5.62
-  },
-  {
-   "rank": 5,
-   "repo": "sg-transit-planner",
-   "bot": "MRT Planner",
-   "hours": 1.54,
-   "runs": 66,
-   "success_pct": 98,
-   "share_pct": 3.88
+   "share_pct": 1.53
   },
   {
    "rank": 6,
-   "repo": "ducktrader-alerts",
-   "bot": "Setup Scanner",
-   "hours": 0.76,
-   "runs": 75,
-   "success_pct": 100,
-   "share_pct": 1.92
+   "repo": "sg-transit-planner",
+   "bot": "MRT Planner",
+   "hours": 2.22,
+   "runs": 109,
+   "success_pct": 99,
+   "share_pct": 1.53
   },
   {
    "rank": 7,
-   "repo": "ducktrader-horses",
-   "bot": "Five Horses",
-   "hours": 0.52,
-   "runs": 41,
-   "success_pct": 95,
-   "share_pct": 1.3
+   "repo": "ducktrader-alerts",
+   "bot": "Setup Scanner",
+   "hours": 0.86,
+   "runs": 89,
+   "success_pct": 100,
+   "share_pct": 0.59
   },
   {
    "rank": 8,
-   "repo": "ducktrader-hne",
-   "bot": "HNE 天地双剑",
-   "hours": 0.4,
-   "runs": 32,
-   "success_pct": 100,
-   "share_pct": 1
+   "repo": "ducktrader-horses",
+   "bot": "Five Horses",
+   "hours": 0.59,
+   "runs": 51,
+   "success_pct": 96,
+   "share_pct": 0.41
   },
   {
    "rank": 9,
-   "repo": "ducktrader-flight-bot",
-   "bot": "Flight Scout",
-   "hours": 0.35,
-   "runs": 4,
-   "success_pct": 75,
-   "share_pct": 0.88
+   "repo": "ducktrader-hne",
+   "bot": "HNE 天地双剑",
+   "hours": 0.46,
+   "runs": 42,
+   "success_pct": 100,
+   "share_pct": 0.32
   },
   {
    "rank": 10,
    "repo": "ducktrader-fpl",
    "bot": "FPL Scout",
-   "hours": 0.23,
-   "runs": 16,
+   "hours": 0.26,
+   "runs": 21,
    "success_pct": 100,
-   "share_pct": 0.59
+   "share_pct": 0.18
   },
   {
    "rank": 11,
    "repo": "ducktrader-options",
    "bot": "Options Desk",
-   "hours": 0.15,
-   "runs": 32,
+   "hours": 0.17,
+   "runs": 36,
    "success_pct": 97,
-   "share_pct": 0.38
+   "share_pct": 0.12
   },
   {
    "rank": 12,
+   "repo": "ducktrader-cea-champions",
+   "bot": "CEA Champions",
+   "hours": 0.12,
+   "runs": 4,
+   "success_pct": 100,
+   "share_pct": 0.08
+  },
+  {
+   "rank": 13,
    "repo": "ducktrader-yields",
    "bot": "Yields Bot",
    "hours": 0.1,
    "runs": 11,
    "success_pct": 73,
-   "share_pct": 0.25
-  },
-  {
-   "rank": 13,
-   "repo": "ducktrader-cea-champions",
-   "bot": "CEA Champions",
-   "hours": 0.09,
-   "runs": 3,
-   "success_pct": 100,
-   "share_pct": 0.23
+   "share_pct": 0.07
   },
   {
    "rank": 14,
    "repo": "ducktrader-sectors",
    "bot": "Sector Rotation",
-   "hours": 0.03,
-   "runs": 3,
+   "hours": 0.04,
+   "runs": 5,
    "success_pct": 100,
-   "share_pct": 0.06
+   "share_pct": 0.03
   }
  ]
 }

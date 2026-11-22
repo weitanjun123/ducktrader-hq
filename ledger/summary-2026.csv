@@ -1,15 +1,15 @@
 rank,bot,repo,hours,runs,success_pct,share_pct
-1,200 EMA Watch,ducktrader-200ema,26.78,77,97,67.63
-2,IG Manager,ducktrader-ig-bot,3.87,90,98,9.78
-3,Breadth Desk,ducktrader-breadth,2.56,82,99,6.46
-4,Drama Studio,ducktrader-drama-bot,2.23,2,100,5.62
-5,MRT Planner,sg-transit-planner,1.54,66,98,3.88
-6,Setup Scanner,ducktrader-alerts,0.76,75,100,1.92
-7,Five Horses,ducktrader-horses,0.52,41,95,1.3
-8,HNE 天地双剑,ducktrader-hne,0.4,32,100,1
-9,Flight Scout,ducktrader-flight-bot,0.35,4,75,0.88
-10,FPL Scout,ducktrader-fpl,0.23,16,100,0.59
-11,Options Desk,ducktrader-options,0.15,32,97,0.38
-12,Yields Bot,ducktrader-yields,0.1,11,73,0.25
-13,CEA Champions,ducktrader-cea-champions,0.09,3,100,0.23
-14,Sector Rotation,ducktrader-sectors,0.03,3,100,0.06
+1,Flight Scout,ducktrader-flight-bot,102.18,40,98,70.16
+2,200 EMA Watch,ducktrader-200ema,26.94,92,98,18.5
+3,IG Manager,ducktrader-ig-bot,6.78,140,99,4.66
+4,Breadth Desk,ducktrader-breadth,2.67,101,99,1.83
+5,Drama Studio,ducktrader-drama-bot,2.23,2,100,1.53
+6,MRT Planner,sg-transit-planner,2.22,109,99,1.53
+7,Setup Scanner,ducktrader-alerts,0.86,89,100,0.59
+8,Five Horses,ducktrader-horses,0.59,51,96,0.41
+9,HNE 天地双剑,ducktrader-hne,0.46,42,100,0.32
+10,FPL Scout,ducktrader-fpl,0.26,21,100,0.18
+11,Options Desk,ducktrader-options,0.17,36,97,0.12
+12,CEA Champions,ducktrader-cea-champions,0.12,4,100,0.08
+13,Yields Bot,ducktrader-yields,0.1,11,73,0.07
+14,Sector Rotation,ducktrader-sectors,0.04,5,100,0.03
