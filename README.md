@@ -18,3 +18,6 @@ Lists every public repo with GitHub Pages switched on (search + ⭐ pins). Refre
 ## Hardworking ranking + bonus ledger
 - **7-day ranking:** work hours = total run time of each bot's GitHub jobs in the last 7 days. Index = bot hours ÷ all bots' hours. Each duck carries a bar (full bar + ⭐ = hardest worker).
 - **Year ledger:** the weekly "Work-hours ledger" workflow (Monday 00:13 SGT) logs every finished run once into `ledger/runs-YYYY.csv` and rebuilds `ledger/summary-YYYY.csv/.json` (hours, runs, success %, share %). `share_pct` = that bot's slice of the year-end bonus pool.
+
+## Downloads page
+`downloads.html` lists every file in `downloads/` (subfolders = categories) plus the always-latest bonus ledger CSVs. Built on each HQ update by `scripts/downloads.mjs`. Public — keep personal files out.

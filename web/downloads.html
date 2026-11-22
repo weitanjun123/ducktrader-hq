@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DuckTrader HQ — Downloads</title>
+<meta name="theme-color" content="#16181c">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#24272d;--bg2:#121316;--gold:#d4af37;--gold2:#f3d36b;--white:#f4f1ea;--mute:#8b8f98;--line:#30343c}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:radial-gradient(120% 80% at 50% 0%,var(--bg1),var(--bg2) 70%);background-color:var(--bg2);color:var(--white);font-family:Oswald,system-ui,sans-serif;min-height:100%}
+body{padding:max(16px,env(safe-area-inset-top)) 14px 40px}
+.wrap{max-width:1000px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+h1{font-family:"Bebas Neue";font-weight:400;font-size:44px;letter-spacing:2px;line-height:.9;color:var(--gold2)}
+h1 span{color:var(--white)}
+.sub{font-size:13px;color:var(--mute);margin-top:4px}
+.pill{font-family:"Bebas Neue";font-size:18px;letter-spacing:1px;padding:5px 12px 3px;border-radius:999px;background:#1b1d22;border:1px solid var(--line);color:var(--white);text-decoration:none}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+#q{flex:1 1 200px;min-width:0;background:#1b1d22;border:1px solid var(--line);border-radius:999px;color:var(--white);font:inherit;font-size:15px;padding:8px 14px;outline:none}
+#q:focus{border-color:var(--gold)}
+.chip{background:#1b1d22;border:1px solid var(--line);color:var(--white);border-radius:999px;padding:5px 12px;font:inherit;font-size:14px;cursor:pointer}
+.chip.on{background:var(--gold);color:#141414;border-color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-weight:500;color:var(--gold2);text-align:left;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:8px 6px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+th.nosort{cursor:default;color:var(--mute)}
+td{padding:10px 6px;border-bottom:1px solid #23262c;vertical-align:middle}
+.nm{display:flex;align-items:center;gap:10px;min-width:0}
+.nm b{font-weight:500;overflow-wrap:anywhere}
+.thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#0e0f12;border:1px solid var(--line);flex:none;display:grid;place-items:center;font-size:20px}
+.tag{font-size:12px;color:var(--mute)}
+.auto{font-size:11px;color:var(--gold2);border:1px solid #4a3d12;border-radius:999px;padding:1px 7px;margin-left:6px}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.dl{background:var(--gold);color:#141414;font-family:"Bebas Neue";font-size:18px;letter-spacing:1px;text-decoration:none;padding:6px 12px 4px;border-radius:999px;white-space:nowrap}
+.empty{color:var(--mute);padding:14px 4px}
+.warn{font-size:12px;color:var(--mute);margin-top:16px;line-height:1.5}
+@media (max-width:640px){.hide-sm{display:none}h1{font-size:36px}.thumb{width:34px;height:34px;font-size:16px}.dl{padding:6px 10px 4px}.auto{display:inline-block;margin:2px 0 0}td{padding:10px 4px}.num{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><h1>📥 DOWN<span>LOADS</span></h1><div class="sub" id="sub">Loading files…</div></div>
+    <div style="display:flex;gap:8px"><a class="pill" href="./#pages">📌 Pages</a><a class="pill" href="./#office">🦆 Office</a></div>
+  </header>
+  <div class="bar"><input id="q" type="search" placeholder="Search files…" autocomplete="off"></div>
+  <div class="bar" id="chips"></div>
+  <table>
+    <thead><tr>
+      <th data-k="name">Name<span></span></th>
+      <th data-k="category" class="hide-sm">Category<span></span></th>
+      <th data-k="ext" class="hide-sm">Type<span></span></th>
+      <th data-k="size">Size<span></span></th>
+      <th data-k="added">Added<span></span></th>
+      <th class="nosort"></th>
+    </tr></thead>
+    <tbody id="rows"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+  </table>
+  <div class="warn">Add files: drop them into the <code>downloads/</code> folder of the ducktrader-hq repo (subfolders become categories). This page is public — keep personal files out.</div>
+</div>
+<script>
+let FILES=[], CAT="All", SK="added", SD=-1;
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const size=b=>b<1024?b+" B":b<1048576?(b/1024).toFixed(1)+" KB":(b/1048576).toFixed(1)+" MB";
+const date=s=>s?new Intl.DateTimeFormat("en-SG",{timeZone:"Asia/Singapore",day:"numeric",month:"short",year:"numeric"}).format(new Date(s)):"—";
+const IMG=["png","jpg","jpeg","gif","webp","svg"];
+const ICON={csv:"📊",xlsx:"📊",json:"🧾",pdf:"📄",zip:"🗜️",skill:"🧩",mp4:"🎬",mov:"🎬",mp3:"🎵",txt:"📝",md:"📝",html:"🌐"};
+function render(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const list=FILES.filter(f=>(CAT==="All"||f.category===CAT)&&(!q||(f.name+" "+f.category+" "+f.ext).toLowerCase().includes(q)))
+    .sort((a,b)=>{const x=a[SK],y=b[SK];return (typeof x==="number"?x-y:String(x||"").localeCompare(String(y||"")))*SD;});
+  document.querySelectorAll("th[data-k] span").forEach(s=>s.textContent="");
+  const th=document.querySelector(`th[data-k="${SK}"] span`); if(th) th.textContent=SD<0?" ▼":" ▲";
+  document.getElementById("rows").innerHTML=list.length?list.map(f=>`<tr>
+    <td><div class="nm">${IMG.includes(f.ext)?`<img class="thumb" src="${f.path}" alt="" loading="lazy">`:`<div class="thumb">${ICON[f.ext]||"📁"}</div>`}
+      <div><b>${esc(f.name)}</b>${f.auto?'<span class="auto">always latest</span>':""}<div class="tag">${esc(f.category)}</div></div></div></td>
+    <td class="hide-sm">${esc(f.category)}</td><td class="hide-sm">${esc(f.ext.toUpperCase())}</td>
+    <td class="num">${size(f.size)}</td><td class="num">${date(f.added)}</td>
+    <td><a class="dl" href="${f.path}" download="${esc(f.name)}"><span class="hide-sm">Download </span>⬇</a></td></tr>`).join(""):'<tr><td colspan="6" class="empty">No files match.</td></tr>';
+}
+function chips(){
+  const cats=["All",...new Set(FILES.map(f=>f.category))];
+  document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===CAT?"on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{CAT=b.dataset.c;chips();render();});
+}
+document.querySelectorAll("th[data-k]").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(SK===k) SD=-SD; else {SK=k; SD=k==="name"||k==="category"||k==="ext"?1:-1;} render();});
+document.getElementById("q").addEventListener("input",render);
+fetch("downloads.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{files:[]}).then(j=>{FILES=j.files||[];
+  document.getElementById("sub").textContent=`${FILES.length} file${FILES.length===1?"":"s"} · tap a column to sort`; chips(); render();})
+ .catch(()=>{document.getElementById("rows").innerHTML='<tr><td colspan="6" class="empty">Files appear after the next HQ update.</td></tr>';});
+</script>
+</body>
+</html>

@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -31,6 +33,7 @@ jobs:
           mkdir -p site
           cp -r web/* site/
           cp ledger/summary-*.json site/ 2>/dev/null || true
+          node scripts/downloads.mjs
           node scripts/collect.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
